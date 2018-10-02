@@ -16,7 +16,7 @@ const school = {key:'school', color: 'blue'};
 const fun = {key:'fun', color: 'orange'};
 const other = {key:'other', color: 'green'};
 
-export default class TodoCalandarScreen extends React.Component {
+export default class TodoCalendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};

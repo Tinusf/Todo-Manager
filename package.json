@@ -18,6 +18,9 @@
     "react": "16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
     "react-native-calendars": "^1.21.0",
+    "react-native-datepicker": "^1.7.2",
+    "react-native-floating-action": "^1.13.0",
+    "react-native-modal": "^6.5.0",
     "react-navigation": "^2.16.0"
   },
   "devDependencies": {
