@@ -3,16 +3,16 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import MapsScreen from '../screens/MapsScreen';
+import PedometerScreen from '../screens/PedometerScreen';
+import TodoScreen from '../screens/TodoScreen';
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+const TodoStack = createStackNavigator({
+  Todo: TodoScreen,
 });
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+TodoStack.navigationOptions = {
+  tabBarLabel: 'Todo',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -25,12 +25,12 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const MapsStack = createStackNavigator({
+  Maps: MapsScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+MapsStack.navigationOptions = {
+  tabBarLabel: 'Maps',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -39,12 +39,12 @@ LinksStack.navigationOptions = {
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+const PedometerStack = createStackNavigator({
+  Pedometer: PedometerScreen,
 });
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+PedometerStack.navigationOptions = {
+  tabBarLabel: 'Pedometer',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -53,8 +53,9 @@ SettingsStack.navigationOptions = {
   ),
 };
 
+
 export default createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack,
+  TodoStack,
+  MapsStack,
+  PedometerStack,
 });
