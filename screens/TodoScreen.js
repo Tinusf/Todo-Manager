@@ -12,7 +12,7 @@ import {
 
 export default class TodoScreen extends React.Component {
   static navigationOptions = {
-    title: 'Todo List',
+    title: 'Todo View',
   };
 
   render() {
