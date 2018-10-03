@@ -1,19 +1,44 @@
 import React from 'react';
-import { Text, View, CheckBox } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
+import CheckBox from 'react-native-check-box';
 
 export default class TodoElement extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      checkBoxStatus: this.props.completed
+    };
+  }
+
+
   render() {
     return (
-    <View>
+    <View style={styles.container}>
         <CheckBox
-          title='Click Here'
-          checked={true}
+          style={{ flex: 1, padding: 10 }}
+          onClick={() => {
+            this.setState({
+              checkBoxStatus: !this.state.checkBoxStatus
+            })
+          }}
+          isChecked={this.state.checkBoxStatus}
+          rightText={this.props.text}
         />
-      <Text>{this.props.text}</Text>
-      <Text>{this.props.date}</Text>
-      {this.props.completed && <Text>done</Text>}
+        <Text style={styles.dateText}>{this.props.date}</Text>
     </View>
     );
   }
 }
 
+const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10,
+  },
+  dateText: {
+    paddingTop: 12.5,
+  }
+});

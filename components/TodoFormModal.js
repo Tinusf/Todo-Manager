@@ -26,6 +26,7 @@ export default class TodoForm extends React.Component {
   _toggleModal = () => {
     this.setState({ text: null });
     this.setState({ date: null });
+    // clear the text and date aswell as to toggle whether the modal is visible or not.
     this.setState({ isModalVisible: !this.state.isModalVisible });
   }
 
@@ -33,10 +34,6 @@ export default class TodoForm extends React.Component {
     console.log("new todo added");
     console.log(this.state.date + this.state.text);
     this._toggleModal();
-  }
-
-  _toggleModal = () => {
-    this.setState({ isModalVisible: !this.state.isModalVisible });
   }
 
   render() {
@@ -126,7 +123,6 @@ export default class TodoForm extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
   },
   buttonContainer: {
     flex: 1,
@@ -139,6 +135,5 @@ const styles = StyleSheet.create({
   },
   textInput: {
     fontSize: 18,
-
   }
 });
