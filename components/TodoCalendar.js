@@ -11,10 +11,12 @@ import {
   Alert,
 } from 'react-native';
 
-const work = {key:'work', color: 'red'};
-const school = {key:'school', color: 'blue'};
-const fun = {key:'fun', color: 'orange'};
-const other = {key:'other', color: 'green'};
+categoryToColor = {
+  'work': {color: 'red'},
+  'school': {color: 'blue'},
+  'fun': {color: 'orange'},
+  'other': {color: 'green'}
+}
 
 export default class TodoCalendar extends React.Component {
   constructor(props) {
@@ -26,6 +28,18 @@ export default class TodoCalendar extends React.Component {
     title: 'Todo Calendar',
   };
 
+  createMarkedObject = (todos) => {
+    output = {}
+    todos.forEach(todo => {
+      if (todo["date"] in output) {
+        output[todo["date"]]["dots"].push(categoryToColor[todo["category"]]);
+      } else {
+        output[todo["date"]] = {dots: [categoryToColor[todo["category"]]]}
+      }
+    });
+    return output;
+  }
+
   render() {
     return (
       <View>
@@ -35,11 +49,9 @@ export default class TodoCalendar extends React.Component {
           minDate={Date()}
           showWeekNumbers = {true}
           hideExtraDays = {true}
-          markedDates={{
-            //test
-            '2018-10-24': {dots: [school, work]},
-            [this.state.selected]: {selected: true,}
-          }}
+          markedDates={
+            Object.assign({}, this.createMarkedObject(this.props.todos), {[this.state.selected]: {selected: true}})
+          }
           markingType={'multi-dot'}
          />
          <ScrollView>
