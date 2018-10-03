@@ -23,11 +23,12 @@ export default class TodoList extends React.Component {
           key={todo["id"]}
           text={todo["text"]}
           date={todo["date"]}
-          completed={todo["completed"]} />
+          completed={todo["completed"]}
+          category={todo["category"]} />
         )
       }
     });
-    
+
 // TODO finn bedre måte å sette høyden til scrollview
     return (
       <View style={{height: 400}}>
