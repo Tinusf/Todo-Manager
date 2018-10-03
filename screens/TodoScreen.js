@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
   },
   calOrList: {
     position: 'absolute',
+    width: '100%'
   },
   btnAndModal: {
     position: 'absolute'
