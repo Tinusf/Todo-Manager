@@ -20,7 +20,6 @@ export default class TodoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {isModalVisible: false}
-    console.log("me again")
   }
 
   _toggleModal = () => {
@@ -31,11 +30,13 @@ export default class TodoForm extends React.Component {
   }
 
   addNewTodo = () => {
+    // Kjør addNewTodo metoden til TodoScreen så alt av todo states blir gjort av den.
     this.props.addNewTodo(this.state.text, this.state.date, this.state.categoryChosen);
     this._toggleModal();
   }
 
   render() {
+    // actions er hvilken handlinger du kan gjøre etter du har trykker på den store + knappen. Vi har valgt å ha kategorier her. 
     const actions = [{
       text: 'Work',
       name: 'work',

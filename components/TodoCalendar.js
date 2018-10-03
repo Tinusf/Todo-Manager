@@ -12,14 +12,6 @@ import {
 } from 'react-native';
 import TodoList from "./TodoList";
 
-
-categoryToColor = {
-  'work': {color: 'red'},
-  'school': {color: 'blue'},
-  'fun': {color: 'orange'},
-  'other': {color: 'green'}
-}
-
 export default class TodoCalendar extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +23,20 @@ export default class TodoCalendar extends React.Component {
   };
 
   createMarkedObject = (todos) => {
-    output = {}
+    // Den tar inn todos som er staten av alle todos og går gjennom
+    // alle todosene og hvis du ikke har sett en todo med den datoen så
+    // legger du til et objekt (farge) i output objektet med dato som nøkkel.
+    // om du alt har lagt til datoen i objektet så legger til en ny farge.
+
+    // Alt dette gjør at vi får prikker på kalendern der du har lagt inn todos med riktig farge for kategorier.
+    const categoryToColor = {
+      'work': { color: 'red' },
+      'school': { color: 'blue' },
+      'fun': { color: 'orange' },
+      'other': { color: 'green' }
+    }
+
+    let output = {}
     todos.forEach(todo => {
       if (todo["date"] in output) {
         output[todo["date"]]["dots"].push(categoryToColor[todo["category"]]);
@@ -51,12 +56,12 @@ export default class TodoCalendar extends React.Component {
           showWeekNumbers = {true}
           hideExtraDays = {true}
           markedDates={
-            Object.assign({}, this.createMarkedObject(this.props.todos), {[this.state.selected]: {selected: true}})
+            Object.assign({}, this.createMarkedObject(this.props.todos), {[this.state.selectedDate]: {selected: true}})
           }
           markingType={'multi-dot'}
           />
         <ScrollView>
-          <TodoList chosenDay={this.state.selected} todos={this.props.todos}></TodoList>
+          <TodoList chosenDay={this.state.selectedDate} todos={this.props.todos}></TodoList>
         </ScrollView>
        </View>
     );
@@ -64,7 +69,7 @@ export default class TodoCalendar extends React.Component {
   onDayPress(day) {
    this.setState({
      // Format: "YY-MM-DD"
-     selected: day.dateString,
+     selectedDate: day.dateString,
    });
  }
 }
