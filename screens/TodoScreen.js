@@ -16,7 +16,6 @@ import TodoFormModal from "../components/TodoFormModal";
 export default class TodoScreen extends React.Component {
   static navigationOptions = {
     title: 'Todo View',
-    // header: null,
   };
 
   constructor(props) {
@@ -24,7 +23,7 @@ export default class TodoScreen extends React.Component {
     this.state = {
       showCalendar: true,
       nextId: 3,
-      todos: [{ id: 1, text: "kjøp melk", date: "2018-10-04", category: "work", completed: false }, { id: 2, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }
+      todos: [{ id: 1, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 2, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }
       ]
     };
   }
@@ -39,7 +38,7 @@ export default class TodoScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.calOrList}>
-          {!this.state.showCalendar && <TodoList todos={this.state.todos} />}
+          {!this.state.showCalendar && <TodoList todos={this.state.todos}/>}
           {this.state.showCalendar && <TodoCalendar todos={this.state.todos}/>}
         </View>
         <TodoFormModal addNewTodo={this.addNewTodo} style={styles.btnAndModal} />

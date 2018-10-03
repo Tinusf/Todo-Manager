@@ -10,6 +10,8 @@ import {
   View,
   Alert,
 } from 'react-native';
+import TodoList from "./TodoList";
+
 
 categoryToColor = {
   'work': {color: 'red'},
@@ -52,11 +54,10 @@ export default class TodoCalendar extends React.Component {
             Object.assign({}, this.createMarkedObject(this.props.todos), {[this.state.selected]: {selected: true}})
           }
           markingType={'multi-dot'}
-         />
-         <ScrollView>
-          <Text style={styles.text}>{this.state.selected}</Text>
-          {/* TODO Skriv todos for den valgte dagen her*/}
-         </ScrollView>
+          />
+        <ScrollView>
+          <TodoList chosenDay={this.state.selected} todos={this.props.todos}></TodoList>
+        </ScrollView>
        </View>
     );
   }

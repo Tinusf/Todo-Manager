@@ -12,13 +12,15 @@ export default class TodoList extends React.Component {
 
   render() {
     let todos = this.props.todos.map((todo) => {
-      return (
-        <TodoElement 
-        key={todo["id"]}
-        text={todo["text"]}
-        date={todo["date"]}
-        completed={todo["completed"]} />
-      )
+      if (!this.props.chosenDay || (this.props.chosenDay && this.props.chosenDay == todo["date"])) {
+        return (
+          <TodoElement 
+          key={todo["id"]}
+          text={todo["text"]}
+          date={todo["date"]}
+          completed={todo["completed"]} />
+        )
+      }
     });
     
 // TODO finn bedre måte å sette høyden til scrollview
