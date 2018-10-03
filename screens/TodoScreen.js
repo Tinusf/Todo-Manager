@@ -28,10 +28,9 @@ export default class TodoScreen extends React.Component {
       ]
     };
   }
-  addNewTodo = (text, date) => {
-    console.log(text + date);
+  addNewTodo = (text, date, category) => {
     this.setState(prevState => ({
-      todos: [...prevState.todos, {"id": prevState.nextId, "text": text, "date": date, "category": "work", "completed": false}],
+      todos: [...prevState.todos, {"id": prevState.nextId, "text": text, "date": date, "category": category, "completed": false}],
       nextId: prevState.nextId + 1
     }));
   }

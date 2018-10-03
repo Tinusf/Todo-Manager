@@ -31,29 +31,29 @@ export default class TodoForm extends React.Component {
   }
 
   addNewTodo = () => {
-    this.props.addNewTodo(this.state.text, this.state.date);
+    this.props.addNewTodo(this.state.text, this.state.date, this.state.categoryChosen);
     this._toggleModal();
   }
 
   render() {
     const actions = [{
       text: 'Work',
-      name: 'Work',
+      name: 'work',
       color: "red",
       position: 1
     }, {
       text: 'School',
-      name: 'School',
+      name: 'school',
       color: "blue",
       position: 2
     }, {
       text: 'Fun',
-      name: 'Fun',
+      name: 'fun',
       color: "orange",
       position: 3
     }, {
       text: 'Other',
-      name: 'Other',
+      name: 'other',
       color: "green",
       position: 4
     }];

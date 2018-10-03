@@ -46,7 +46,6 @@ export default class TodoCalendar extends React.Component {
         <Calendar
           onDayPress = {this.onDayPress}
           style = {styles.calendar}
-          minDate={Date()}
           showWeekNumbers = {true}
           hideExtraDays = {true}
           markedDates={
