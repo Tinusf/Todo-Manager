@@ -21,17 +21,29 @@ export default class TodoScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { showCalendar: false }
+    this.state = {
+      showCalendar: false,
+      nextId: 3,
+      todos: [{ id: 1, text: "kjøp melk", date: "2018-10-04", category: "work", completed: false }, { id: 2, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-05", category: "work", completed: true }
+      ]
+    };
+  }
+  addNewTodo = (text, date) => {
+    console.log(text + date);
+    this.setState(prevState => ({
+      todos: [...prevState.todos, {"id": prevState.nextId, "text": text, "date": date, "category": "work", "completed": false}],
+      nextId: prevState.nextId + 1
+    }));
   }
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.calOrList}>
-          {!this.state.showCalendar && <TodoList/>}
+          {!this.state.showCalendar && <TodoList todos={this.state.todos} />}
           {this.state.showCalendar && <TodoCalendar/>}
         </View>
-        <TodoFormModal style={styles.btnAndModal} />
+        <TodoFormModal addNewTodo={this.addNewTodo} style={styles.btnAndModal} />
       </View>
     );
   }

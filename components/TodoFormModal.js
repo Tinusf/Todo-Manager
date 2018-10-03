@@ -31,8 +31,7 @@ export default class TodoForm extends React.Component {
   }
 
   addNewTodo = () => {
-    console.log("new todo added");
-    console.log(this.state.date + this.state.text);
+    this.props.addNewTodo(this.state.text, this.state.date);
     this._toggleModal();
   }
 
