@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoCalendar Matches snapshot. 1`] = `
+<Component>
+  <Calendar
+    hideExtraDays={true}
+    markedDates={
+      Object {
+        "2018-10-04": Object {
+          "dots": Array [
+            Object {
+              "color": "orange",
+            },
+          ],
+        },
+        "2018-10-05": Object {
+          "dots": Array [
+            Object {
+              "color": "red",
+            },
+          ],
+        },
+        "undefined": Object {
+          "selected": true,
+        },
+      }
+    }
+    markingType="multi-dot"
+    onDayPress={[Function]}
+    showWeekNumbers={true}
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "#aaa",
+        "borderTopWidth": 1,
+        "height": 350,
+        "paddingTop": 5,
+      }
+    }
+  />
+  <ScrollViewMock>
+    <TodoList
+      chosenDay={undefined}
+      todos={
+        Array [
+          Object {
+            "category": "work",
+            "completed": false,
+            "date": "2018-10-05",
+            "id": 1,
+            "text": "kjøp melk",
+          },
+          Object {
+            "category": "fun",
+            "completed": true,
+            "date": "2018-10-04",
+            "id": 2,
+            "text": "gjør webdev øvinga",
+          },
+        ]
+      }
+    />
+  </ScrollViewMock>
+</Component>
+`;

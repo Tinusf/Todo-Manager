@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList Matches snapshot. 1`] = `
+<Component
+  style={
+    Object {
+      "height": 400,
+    }
+  }
+>
+  <ScrollViewMock>
+    <TodoElement
+      category="work"
+      completed={false}
+      date="2018-10-05"
+      text="kjøp melk"
+    />
+    <TodoElement
+      category="fun"
+      completed={true}
+      date="2018-10-04"
+      text="gjør webdev øvinga"
+    />
+  </ScrollViewMock>
+</Component>
+`;
