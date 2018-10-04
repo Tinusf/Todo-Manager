@@ -19,18 +19,31 @@ import { FloatingAction } from 'react-native-floating-action';
 export default class TodoForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {isModalVisible: false}
+    this.state = {
+      isModalVisible: false,
+      helpAlert: true
+    }
   }
 
   _toggleModal = () => {
-    this.setState({ text: null });
-    this.setState({ date: null });
+    this.setState({ text: undefined });
+    this.setState({ date: undefined });
     // clear the text and date aswell as to toggle whether the modal is visible or not.
     this.setState({ isModalVisible: !this.state.isModalVisible });
   }
 
   addNewTodo = () => {
     // Kjør addNewTodo metoden til TodoScreen så alt av todo states blir gjort av den.
+    if (this.state.helpAlert && this.state.date === undefined) {
+      // Om brukern ikke har valgt en dato burde det komme en liten varsling om at den ikke kan bli sett i kalendern.
+      Alert.alert('No date chosen',
+        'You have not chosen a date and will therefore not be able to view your todo in Calender mode, press the list mode button to view your todos without date.',
+        [
+          { text: 'Never remind me again', onPress: () => this.setState({helpAlert: false}) },
+          { text: 'OK'},
+        ],
+        { cancelable: false })
+    }
     this.props.addNewTodo(this.state.text, this.state.date, this.state.categoryChosen);
     this._toggleModal();
   }
