@@ -33,7 +33,6 @@ exports[`TodoCalendar Matches snapshot. 1`] = `
         "borderBottomWidth": 1,
         "borderColor": "#aaa",
         "borderTopWidth": 1,
-        "height": 350,
         "paddingTop": 5,
       }
     }

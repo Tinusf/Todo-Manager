@@ -31,7 +31,7 @@ export default class TodoList extends React.Component {
 
 // TODO finn bedre måte å sette høyden til scrollview
     return (
-      <View style={{height: 400}}>
+      <View>
         <ScrollView>{todos}</ScrollView>
       </View>
     );

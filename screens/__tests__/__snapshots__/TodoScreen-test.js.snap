@@ -12,8 +12,11 @@ exports[`TodoScreen Matches snapshot. 1`] = `
   <Component
     style={
       Object {
+        "bottom": 0,
+        "left": 0,
         "position": "absolute",
-        "width": "100%",
+        "right": 0,
+        "top": 0,
       }
     }
   >
@@ -25,7 +28,11 @@ exports[`TodoScreen Matches snapshot. 1`] = `
     addNewTodo={[Function]}
     style={
       Object {
+        "bottom": 0,
+        "left": 0,
         "position": "absolute",
+        "right": 0,
+        "top": 0,
       }
     }
   />

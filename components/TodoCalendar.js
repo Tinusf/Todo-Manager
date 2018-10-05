@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     borderBottomWidth: 1,
     borderColor: '#aaa',
-    height: 350,
   },
   text: {
     textAlign: 'center',
