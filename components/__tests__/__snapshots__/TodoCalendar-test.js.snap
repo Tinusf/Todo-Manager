@@ -37,28 +37,27 @@ exports[`TodoCalendar Matches snapshot. 1`] = `
       }
     }
   />
-  <ScrollViewMock>
-    <TodoList
-      chosenDay={undefined}
-      todos={
-        Array [
-          Object {
-            "category": "work",
-            "completed": false,
-            "date": "2018-10-05",
-            "id": 1,
-            "text": "kjøp melk",
-          },
-          Object {
-            "category": "fun",
-            "completed": true,
-            "date": "2018-10-04",
-            "id": 2,
-            "text": "gjør webdev øvinga",
-          },
-        ]
-      }
-    />
-  </ScrollViewMock>
+  <TodoList
+    chosenDay={undefined}
+    smallWindow={true}
+    todos={
+      Array [
+        Object {
+          "category": "work",
+          "completed": false,
+          "date": "2018-10-05",
+          "id": 1,
+          "text": "kjøp melk",
+        },
+        Object {
+          "category": "fun",
+          "completed": true,
+          "date": "2018-10-04",
+          "id": 2,
+          "text": "gjør webdev øvinga",
+        },
+      ]
+    }
+  />
 </Component>
 `;

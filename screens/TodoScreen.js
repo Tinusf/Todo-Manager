@@ -22,10 +22,10 @@ export default class TodoScreen extends React.Component {
     super(props);
     this.state = {
       showCalendar: true,
-      nextId: 3,
+      nextId: 5,
       // Uncomment for example todos!
       todos: [
-        // { id: 1, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 2, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }, { id: 1, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 2, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }, { id: 1, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 2, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }, { id: 1, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 2, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }, { id: 1, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 2, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }
+        // { id: 1, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 2, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }, { id: 3, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 4, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }
        ]
     };
   }
@@ -60,17 +60,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   },
   calOrList: {
-    position: 'absolute',
-    top:0,
-    bottom:0,
-    left:0,
-    right:0,
+    ...StyleSheet.absoluteFillObject
   },
   btnAndModal: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
+    ...StyleSheet.absoluteFillObject
   }
 });

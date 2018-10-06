@@ -60,9 +60,7 @@ export default class TodoCalendar extends React.Component {
           }
           markingType={'multi-dot'}
           />
-        <ScrollView>
-          <TodoList chosenDay={this.state.selectedDate} todos={this.props.todos}></TodoList>
-        </ScrollView>
+        <TodoList chosenDay={this.state.selectedDate} todos={this.props.todos} smallWindow={true} ></TodoList>
        </View>
     );
   }
