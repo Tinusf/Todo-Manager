@@ -41,9 +41,11 @@ exports[`TodoScreen Matches snapshot. 1`] = `
   >
     <TodoCalendar
       todos={Array []}
+      toggleTodoStatus={[Function]}
     />
     <TodoList
       todos={Array []}
+      toggleTodoStatus={[Function]}
     />
   </_default>
   <TodoForm

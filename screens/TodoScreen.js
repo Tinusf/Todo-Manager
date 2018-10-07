@@ -10,7 +10,6 @@ import Swiper from 'react-native-swiper';
 import TodoActionButton from "../components/TodoActionButton";
 
 
-
 export default class TodoScreen extends React.Component {
   static navigationOptions = {
     title: 'Todo View',
@@ -21,13 +20,31 @@ export default class TodoScreen extends React.Component {
     this.state = {
       isModalVisible: false,
       showCalendar: true,
-      nextId: 5,
+      nextId: 4,
       // Uncomment for example todos!
       todos: [
-      //   { id: 1, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 2, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }, { id: 3, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 4, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }
+        // { id: 0, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 1, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }, { id: 2, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 3, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }
        ]
     };
   }
+
+  deleteTodo = (id) => {
+    const todos = this.state.todos;
+    todos.splice(x, id);
+    this.setState({
+      todos: todos,
+    });
+  }
+
+  toggleTodoStatus = (id) => {
+    // Toggler statusen til todo'en.
+    const todos = this.state.todos;
+    todos[id]["completed"] = !todos[id]["completed"];
+    this.setState({
+      todos: todos,
+    });
+  }
+
   addNewTodo = (text, date) => {
     // Legg til ett nytt todo objekt i staten vår. Og øk nextId med 1.
     this.setState(prevState => ({
@@ -49,8 +66,8 @@ export default class TodoScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Swiper style={styles.absoluteAndFill} loop={false}>
-          <TodoCalendar todos={this.state.todos}/>
-          <TodoList todos={this.state.todos}/>
+          <TodoCalendar todos={this.state.todos} toggleTodoStatus={this.toggleTodoStatus} />
+          <TodoList todos={this.state.todos} toggleTodoStatus={this.toggleTodoStatus}/>
         </Swiper>
           <TodoActionButton toggleModal={this.toggleModal} setCategoryChosen={this.setCategoryChosen}/>
           <TodoFormModal style={styles.absoluteAndFill} addNewTodo={this.addNewTodo}

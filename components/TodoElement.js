@@ -1,7 +1,6 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Button } from 'react-native';
 import CheckBox from 'react-native-check-box';
-import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
 
 export default class TodoElement extends React.Component {
   constructor(props) {
@@ -10,7 +9,6 @@ export default class TodoElement extends React.Component {
       checkBoxStatus: this.props.completed
     };
   }
-
 
   render() {
     // Lager et objekt git ut en farge basert på kategori
@@ -27,11 +25,9 @@ export default class TodoElement extends React.Component {
         <CheckBox
           style={styles.CheckBox}
           onClick={() => {
-            this.setState({
-              checkBoxStatus: !this.state.checkBoxStatus
-            })
+            this.props.toggleTodoStatus(this.props.id)
           }}
-          isChecked={this.state.checkBoxStatus}
+          isChecked={this.props.completed}
           rightText={this.props.text}
           checkBoxColor={categoryToColor[this.props.category]}
         />

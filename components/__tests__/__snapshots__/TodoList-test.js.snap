@@ -10,16 +10,18 @@ exports[`TodoList Matches snapshot. 1`] = `
 >
   <ScrollViewMock>
     <TodoElement
-      category="work"
-      completed={false}
-      date="2018-10-05"
-      text="kjøp melk"
-    />
-    <TodoElement
       category="fun"
       completed={true}
       date="2018-10-04"
+      id={2}
       text="gjør webdev øvinga"
+    />
+    <TodoElement
+      category="work"
+      completed={false}
+      date="2018-10-05"
+      id={1}
+      text="kjøp melk"
     />
   </ScrollViewMock>
 </Component>
