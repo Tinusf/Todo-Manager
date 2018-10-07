@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoActionButton Matches snapshot. 1`] = `
+<FloatingAction
+  actions={
+    Array [
+      Object {
+        "color": "red",
+        "name": "work",
+        "position": 1,
+        "text": "Work",
+      },
+      Object {
+        "color": "blue",
+        "name": "school",
+        "position": 2,
+        "text": "School",
+      },
+      Object {
+        "color": "orange",
+        "name": "fun",
+        "position": 3,
+        "text": "Fun",
+      },
+      Object {
+        "color": "green",
+        "name": "other",
+        "position": 4,
+        "text": "Other",
+      },
+    ]
+  }
+  actionsPaddingTopBottom={8}
+  color="#1253bc"
+  dismissKeyboardOnPress={false}
+  distanceToEdge={30}
+  iconHeight={15}
+  iconWidth={15}
+  listenKeyboard={false}
+  onPressItem={[Function]}
+  openOnMount={false}
+  overlayColor="rgba(68, 68, 68, 0.6)"
+  overrideWithAction={false}
+  position="right"
+  showBackground={true}
+  visible={true}
+/>
+`;

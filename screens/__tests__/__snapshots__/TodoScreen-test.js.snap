@@ -9,7 +9,26 @@ exports[`TodoScreen Matches snapshot. 1`] = `
     }
   }
 >
-  <Component
+  <_default
+    automaticallyAdjustContentInsets={false}
+    autoplay={false}
+    autoplayDirection={true}
+    autoplayTimeout={2.5}
+    bounces={false}
+    disableNextButton={false}
+    horizontal={true}
+    index={0}
+    loadMinimal={false}
+    loadMinimalSize={1}
+    loop={false}
+    onIndexChanged={[Function]}
+    pagingEnabled={true}
+    removeClippedSubviews={true}
+    scrollsToTop={false}
+    showsButtons={false}
+    showsHorizontalScrollIndicator={false}
+    showsPagination={true}
+    showsVerticalScrollIndicator={false}
     style={
       Object {
         "bottom": 0,
@@ -23,9 +42,17 @@ exports[`TodoScreen Matches snapshot. 1`] = `
     <TodoCalendar
       todos={Array []}
     />
-  </Component>
+    <TodoList
+      todos={Array []}
+    />
+  </_default>
+  <TodoForm
+    setCategoryChosen={[Function]}
+    toggleModal={[Function]}
+  />
   <TodoForm
     addNewTodo={[Function]}
+    isModalVisible={false}
     style={
       Object {
         "bottom": 0,
@@ -35,6 +62,7 @@ exports[`TodoScreen Matches snapshot. 1`] = `
         "top": 0,
       }
     }
+    toggleModal={[Function]}
   />
 </Component>
 `;

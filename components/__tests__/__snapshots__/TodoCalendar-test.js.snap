@@ -38,7 +38,6 @@ exports[`TodoCalendar Matches snapshot. 1`] = `
     }
   />
   <TodoList
-    chosenDay={undefined}
     smallWindow={true}
     todos={
       Array [
