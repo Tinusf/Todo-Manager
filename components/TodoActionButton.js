@@ -5,8 +5,6 @@ import { FloatingAction } from 'react-native-floating-action';
 export default class TodoForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.toggleModal)
-    //this.setCategoryChosen = this.props.setCategoryChosen.bind(this);
   }
 
 

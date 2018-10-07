@@ -23,7 +23,7 @@ export default class TodoForm extends React.Component {
     if (this.state.helpAlert && this.state.date === undefined) {
       // Om brukern ikke har valgt en dato burde det komme en liten varsling om at den ikke kan bli sett i kalendern.
       Alert.alert('No date chosen',
-        'You have not chosen a date and will therefore not be able to view your todo in Calender mode, press the list mode button to view your todos without date.',
+        'You have not chosen a date and will therefore not be able to view your todo in Calender mode, swipe right to view your todos without date.',
         [
           { text: 'Never remind me again', onPress: () => this.setState({helpAlert: false}) },
           { text: 'OK'},
