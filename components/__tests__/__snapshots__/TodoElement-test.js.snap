@@ -39,5 +39,28 @@ exports[`TodoElement Matches snapshot. 1`] = `
   >
     2018-10-07
   </Text>
+  <TouchableOpacity
+    activeOpacity={0.2}
+    onPress={[Function]}
+    style={
+      Object {
+        "padding": 8,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "red",
+          "fontSize": 20,
+        }
+      }
+    >
+      X
+    </Text>
+  </TouchableOpacity>
 </Component>
 `;

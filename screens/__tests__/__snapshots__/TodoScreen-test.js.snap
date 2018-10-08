@@ -40,10 +40,12 @@ exports[`TodoScreen Matches snapshot. 1`] = `
     }
   >
     <TodoCalendar
+      deleteTodo={[Function]}
       todos={Array []}
       toggleTodoStatus={[Function]}
     />
     <TodoList
+      deleteTodo={[Function]}
       todos={Array []}
       toggleTodoStatus={[Function]}
     />

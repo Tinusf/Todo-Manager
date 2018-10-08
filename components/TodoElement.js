@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet, Button, TouchableOpacity } from 'react-native';
 import CheckBox from 'react-native-check-box';
 
 export default class TodoElement extends React.Component {
@@ -32,6 +32,9 @@ export default class TodoElement extends React.Component {
           checkBoxColor={categoryToColor[this.props.category]}
         />
         <Text style={styles.dateText}>{this.props.date}</Text>
+        <TouchableOpacity style={styles.deleteButton} onPress={() => this.props.deleteTodo(this.props.id)}>
+          <Text style={styles.deleteText}>X</Text>
+        </TouchableOpacity>
     </View>
     );
   }
@@ -51,5 +54,13 @@ const styles = StyleSheet.create({
   CheckBox: {
    flex: 1,
    padding: 10,
-  }
+  },
+  deleteButton: {
+    padding: 8,
+  },
+  deleteText: {
+    color: 'red',
+    fontSize: 20,
+
+  },
 });
