@@ -37,7 +37,9 @@ export default class TodoForm extends React.Component {
       position="right"
       onPressItem={
         (name) => {
-          this.props.toggleModal();
+          this.props.onClick('TodoFormModal', {
+          });
+          //this.props.toggleModal();
           this.props.setCategoryChosen(name);
         }
       }

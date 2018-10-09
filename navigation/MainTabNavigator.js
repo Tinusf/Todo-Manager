@@ -6,10 +6,19 @@ import TabBarIcon from '../components/TabBarIcon';
 import MapsScreen from '../screens/MapsScreen';
 import PedometerScreen from '../screens/PedometerScreen';
 import TodoScreen from '../screens/TodoScreen';
+import TodoFormModal from '../screens/TodoFormModal';
 
-const TodoStack = createStackNavigator({
-  Todo: TodoScreen,
-});
+
+
+const TodoStack = createStackNavigator(
+  {
+    TodoScreen: TodoScreen,
+    TodoFormModal: TodoFormModal,
+  }, 
+  {
+    mode: 'modal'
+  }
+);
 
 TodoStack.navigationOptions = {
   tabBarLabel: 'Todo',

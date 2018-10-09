@@ -24,7 +24,7 @@
     "react-native-floating-action": "^1.13.0",
     "react-native-modal": "^6.5.0",
     "react-native-swiper": "^1.5.13",
-    "react-navigation": "^2.16.0"
+    "react-navigation": "^2.17.0"
   },
   "devDependencies": {
     "jest-expo": "^30.0.0"
