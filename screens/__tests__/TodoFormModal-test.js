@@ -5,7 +5,7 @@ import TodoFormModal from "../TodoFormModal";
 
 it("TodoFormModal Matches snapshot.", () => {
     const renderer = new ShallowRenderer();
-    renderer.render(<TodoFormModal isModalVisible={true}/>)
+    renderer.render(<TodoFormModal navigation={{setParams: () => {}}} isModalVisible={true}/>)
     const result = renderer.getRenderOutput();
     expect(result).toMatchSnapshot();
 });

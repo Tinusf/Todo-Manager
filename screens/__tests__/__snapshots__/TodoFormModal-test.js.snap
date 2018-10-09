@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoFormModal Matches snapshot. 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    autoFocus={true}
+    editable={true}
+    multiline={true}
+    onChangeText={[Function]}
+    onSubmitEditing={[Function]}
+    placeholder="Write something..."
+    placeholderTextColor="grey"
+    style={
+      Object {
+        "minHeight": 200,
+      }
+    }
+    underlineColorAndroid="rgba(0,0,0,0)"
+  />
+  <DatePicker
+    TouchableComponent={[Function]}
+    allowFontScaling={true}
+    androidMode="default"
+    cancelBtnText="Cancel"
+    confirmBtnText="Confirm"
+    customStyles={
+      Object {
+        "dateIcon": Object {
+          "left": 0,
+          "marginLeft": 0,
+          "position": "absolute",
+          "top": 4,
+        },
+        "dateInput": Object {
+          "marginLeft": 36,
+        },
+      }
+    }
+    date=""
+    disabled={false}
+    duration={300}
+    format="YYYY-MM-DD"
+    height={259}
+    hideText={false}
+    iconSource={1}
+    maxDate="2025-01-01"
+    minDate="1990-01-01"
+    modalOnResponderTerminationRequest={[Function]}
+    mode="date"
+    onDateChange={[Function]}
+    placeholder="select date"
+    showIcon={true}
+    style={
+      Object {
+        "width": 200,
+      }
+    }
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  >
+    Add a date for your todo (optional)
+  </Text>
+</Component>
+`;

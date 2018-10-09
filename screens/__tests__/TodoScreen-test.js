@@ -5,7 +5,7 @@ import TodoScreen from "../TodoScreen";
 
 it("TodoScreen Matches snapshot.", () => {
     const renderer = new ShallowRenderer();
-    renderer.render(<TodoScreen />)
+    renderer.render(<TodoScreen navigation={{}} />)
     const result = renderer.getRenderOutput();
     expect(result).toMatchSnapshot();
 });

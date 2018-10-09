@@ -29,15 +29,7 @@ exports[`TodoScreen Matches snapshot. 1`] = `
     showsHorizontalScrollIndicator={false}
     showsPagination={true}
     showsVerticalScrollIndicator={false}
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
+    style={Object {}}
   >
     <TodoCalendar
       deleteTodo={[Function]}
@@ -52,20 +44,6 @@ exports[`TodoScreen Matches snapshot. 1`] = `
   </_default>
   <TodoForm
     setCategoryChosen={[Function]}
-    toggleModal={[Function]}
-  />
-  <TodoForm
-    addNewTodo={[Function]}
-    isModalVisible={false}
-    style={
-      Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
     toggleModal={[Function]}
   />
 </Component>
