@@ -27,7 +27,6 @@ export default class PedometerScreen extends React.Component {
       this.setState({
         // Oppdater skrittene
         currentStepCount: result.steps,
-        pastStepCount: this.state.pastStepCount + result.steps,
       });
     });
 
@@ -36,13 +35,16 @@ export default class PedometerScreen extends React.Component {
 
     // Setter start datoen til nå minus 24 timer
     start.setDate(end.getDate() - 1);
+
+    // Henter steps fra startdatoen til sluttdatoen og setter staten
+    // Gir en feilmelding hvis det oppsår en error 
     Pedometer.getStepCountAsync(start, end).then(
       result => {
         this.setState({ pastStepCount: result.steps });
       },
       error => {
         this.setState({
-          pastStepCount: "Could not get stepCount: " + error
+          pastStepCount: "Could not get past step count: " + error
         });
       }
     );
@@ -58,9 +60,9 @@ export default class PedometerScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>
-          Steps last 24 hours: {"\n"}{this.state.pastStepCount}
+          Steps last 24 hours: {"\n"}{this.state.pastStepCount + this.state.currentStepCount}
         </Text>
-        <Text style={styles.text}>Current step count: {"\n"} {this.state.currentStepCount}</Text>
+        <Text style={styles.text}>Current step count: {"\n"}{this.state.currentStepCount}</Text>
       </View>
     );
   }
@@ -69,15 +71,13 @@ export default class PedometerScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
     backgroundColor: '#9DD6EB'
   },
   text: {
     color: '#fff',
     fontSize: 30,
     fontWeight: 'bold',
-    padding: 10,
+    padding: 30,
   }
 });
 
