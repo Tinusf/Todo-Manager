@@ -8,15 +8,16 @@ export default class PedometerScreen extends React.Component {
     title: 'Pedometer View',
   };
   state = {
-    isPedometerAvailable: "checking",
     pastStepCount: 0,
     currentStepCount: 0
   };
 
+  // Kjør _subscribe nå PedometerScreen lastes
   componentDidMount() {
     this._subscribe();
   }
 
+  // Kjør _unsubscribe når PedometerScreen unmounter
   componentWillUnmount() {
     this._unsubscribe();
   }
@@ -24,25 +25,16 @@ export default class PedometerScreen extends React.Component {
   _subscribe = () => {
     this._subscription = Pedometer.watchStepCount(result => {
       this.setState({
-        currentStepCount: result.steps
+        // Oppdater skrittene
+        currentStepCount: result.steps,
+        pastStepCount: this.state.pastStepCount + result.steps,
       });
     });
 
-    Pedometer.isAvailableAsync().then(
-      result => {
-        this.setState({
-          isPedometerAvailable: String(result)
-        });
-      },
-      error => {
-        this.setState({
-          isPedometerAvailable: "Could not get isPedometerAvailable: " + error
-        });
-      }
-    );
-
     const end = new Date();
     const start = new Date();
+
+    // Setter start datoen til nå minus 24 timer
     start.setDate(end.getDate() - 1);
     Pedometer.getStepCountAsync(start, end).then(
       result => {
@@ -56,6 +48,7 @@ export default class PedometerScreen extends React.Component {
     );
   };
 
+  // Fjern subscription hvis den ikke er null og sett den til null
   _unsubscribe = () => {
     this._subscription && this._subscription.remove();
     this._subscription = null;
@@ -65,9 +58,9 @@ export default class PedometerScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>
-          Steps taken in the last 24 hours: {this.state.pastStepCount}
+          Steps last 24 hours: {"\n"}{this.state.pastStepCount}
         </Text>
-        <Text style={styles.text}>Walk! And watch this go up: {this.state.currentStepCount}</Text>
+        <Text style={styles.text}>Current step count: {"\n"} {this.state.currentStepCount}</Text>
       </View>
     );
   }
