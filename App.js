@@ -3,10 +3,8 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Provider } from 'react-redux'
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
-import { createStore } from 'redux'
-import appState from './reducers/Reducer'
-
-const store = createStore(appState)
+import { PersistGate } from 'redux-persist/integration/react'
+import {store, persistor} from './store/ConfigStore'  
 
 export default class App extends React.Component {
   state = {
@@ -26,10 +24,12 @@ export default class App extends React.Component {
     } else {
       return (
         <Provider store={store}>
-          <View style={styles.container}>
-            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-            <AppNavigator />
-          </View>
+          <PersistGate loading={null} persistor={persistor}>
+            <View style={styles.container}>
+              {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+              <AppNavigator />
+            </View>
+          </PersistGate>
         </Provider>
 
       );

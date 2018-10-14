@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { StyleSheet, Text, View, Alert, Button, TextInput, Platform } from "react-native";
 import HeaderButton from "../components/HeaderButton";
 import DatePicker from "react-native-datepicker";
-import { addTodo } from '../actions/Todo-actions'
+import { addTodo } from '../store/actions/Todo-actions'
 
 
 class TodoForm extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { removeTodo, toggleTodo } from '../actions/Todo-actions'
+import { removeTodo, toggleTodo } from '../store/actions/Todo-actions'
 
 import { Text, View, StyleSheet, Button, TouchableOpacity } from 'react-native';
 import CheckBox from 'react-native-check-box';
