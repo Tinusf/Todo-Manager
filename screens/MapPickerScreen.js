@@ -34,7 +34,7 @@ export default class MapPickerScreen extends React.Component {
       });
     }
     // Det er en bug på android telefoner som gjør at denne ikke funker på mobiler som har "device only" på gps mode valgt i settings.
-    let location = await Location.getCurrentPositionAsync({ enableHighAccuracy: true, maximumAge: 10000 });
+    let location = await Location.getCurrentPositionAsync({ enableHighAccuracy: false, maximumAge: 10000 });
 
     const lat = location["coords"]["latitude"];
     const long = location["coords"]["longitude"];

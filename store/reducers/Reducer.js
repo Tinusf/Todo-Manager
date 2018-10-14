@@ -16,7 +16,7 @@ todos = (state = [], action) => {
         }
       ];
     case TOGGLE_TODO:
-      state.map(todo => (todo.id === action.id ? { ...todo, completed: !todo.completed } : todo));
+      return state.map(todo => (todo.id === action.id ? { ...todo, completed: !todo.completed } : todo));
     case REMOVE_TODO:
       return state.filter(({ id }) => id !== action.id);
     default:
