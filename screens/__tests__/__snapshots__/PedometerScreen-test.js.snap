@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PedometerScreen Matches snapshot. 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#9DD6EB",
+      "flex": 1,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 30,
+        "fontWeight": "bold",
+        "padding": 30,
+      }
+    }
+  >
+    Steps last 24 hours: 
+    
+
+    0
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#fff",
+        "fontSize": 30,
+        "fontWeight": "bold",
+        "padding": 30,
+      }
+    }
+  >
+    Current step count: 
+    
+
+    0
+  </Text>
+</Component>
+`;
