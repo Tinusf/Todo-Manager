@@ -23,6 +23,14 @@ class TodoForm extends React.Component {
     };
   }
 
+  showMapPicker = () => {
+    this.props.navigation.navigate("MapPickerScreen", { addLocation: this.addLocation });
+  }
+
+  addLocation = (coords) => {
+    this.setState({coords: coords});
+  }
+
   componentDidMount() {
     this.props.navigation.setParams({ addNewTodo: this.addNewTodo, canSave: this.canSave });
   }
@@ -47,7 +55,7 @@ class TodoForm extends React.Component {
       );
     }
     const { navigation } = this.props;
-    this.props.dispatch(addTodo(navigation.getParam('category'), this.state.text, this.state.date));
+    this.props.dispatch(addTodo(navigation.getParam('category'), this.state.text, this.state.date, this.state.coords));
     this.props.navigation.goBack();
     //this.props.addNewTodo(this.state.text, this.state.date);
   };
@@ -67,6 +75,7 @@ class TodoForm extends React.Component {
           underlineColorAndroid="rgba(0,0,0,0)"
           onSubmitEditing={this.addNewTodo}
         />
+        <Button title="Add location (optional)" onPress={this.showMapPicker}></Button>
         <DatePicker
           style={{ width: 200 }}
           date={this.state.date}

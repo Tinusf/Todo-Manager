@@ -11,6 +11,7 @@ todos = (state = [], action) => {
           text: action.text,
           date: action.date,
           completed: false,
+          coords: action.coords,
           id: state.length === 0 ? 0 : state[state.length - 1].id + 1
         }
       ];

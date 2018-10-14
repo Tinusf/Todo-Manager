@@ -11,8 +11,8 @@ export const REMOVE_TODO = "REMOVE_TODO";
  * action creators
  */
 
-export function addTodo(category, text, date) {
-  return { type: ADD_TODO, category, text, date};
+export function addTodo(category, text, date, coords) {
+  return { type: ADD_TODO, category, text, date, coords};
 }
 
 export function toggleTodo(id) {

@@ -1,17 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
 import { MapView, Permissions, Location } from 'expo';
 
-class MapsScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Map View',
-  };
-
+export default class MapPickerScreen extends React.Component {
   state = {
     // Før du har fetched første resultat fra gpsen så skal du bare være zoomer ut og se hele verdenskartet.
     mapRegion: { latitude: 0, longitude: 0, latitudeDelta: 100, longitudeDelta: 100 },
     currentLocationResult: null,
+    chosenLoc: null,
   };
 
   componentDidMount() {
@@ -21,6 +17,12 @@ class MapsScreen extends React.Component {
 
   onRegionChangeComplete = (mapRegion) => {
     this.setState({ mapRegion });
+  }
+
+  onMapViewPress = (onPressObject) => {
+    const coords = onPressObject["coordinate"];
+    this.setState({chosenLoc: coords});
+    this.props.navigation.getParam("addLocation")(coords);
   }
 
   _getLocationAsyncAndSetRegion = async () => {
@@ -39,19 +41,9 @@ class MapsScreen extends React.Component {
     const latDelta = 0.0922;
     const longDelta = 0.0421;
     this.setState({ mapRegion: { latitude: lat, longitude: long, latitudeDelta: latDelta, longitudeDelta: longDelta } })
-
-    // this.setState({ currentLocationResult: { coords: { "latitude": location["coords"]["latitude"], "longitude": location["coords"]["longitude"] } } });
-
   };
 
   render() {
-    const categoryToColor = {
-      'work': 'red',
-      'school': 'blue',
-      'fun': 'orange',
-      'other': 'green'
-    };
-
     return (
       <View style={styles.container}>
         <MapView
@@ -59,21 +51,13 @@ class MapsScreen extends React.Component {
           region={this.state.mapRegion}
           onRegionChangeComplete={this.onRegionChangeComplete}
           showsUserLocation={true}
-          >
-
-          {this.props.todos
-          // Filtrer ut de todosene som ikke har koordinater. 
-          .filter(todo => todo["coords"] !== undefined)
-          .map(todo => 
-            <MapView.Marker 
-              key={todo["id"]}
-              coordinate={todo["coords"]}
-              title={todo["category"]}
-              description={todo["text"]}
-              pinColor={categoryToColor[todo["category"]]}
-            />
-          )} 
-
+          onPress={(e) => this.onMapViewPress(e.nativeEvent)}
+        >
+          {this.state.chosenLoc && <MapView.Marker
+            coordinate={this.state.chosenLoc}
+            title="Your chosen location."
+            description="Click anywhere else on the map to move this marker."
+          />}
         </MapView>
       </View>
     );
@@ -85,5 +69,3 @@ const styles = StyleSheet.create({
     flex: 1,
   }
 });
-
-export default connect(state => ({ todos: state.todos }))(MapsScreen);

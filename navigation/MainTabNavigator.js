@@ -11,13 +11,10 @@ import MapPickerScreen from '../screens/MapPickerScreen';
 
 
 const TodoStack = createStackNavigator(
-  {
+  {    
     TodoScreen: TodoScreen,
     TodoFormModal: TodoFormModal,
     MapPickerScreen: MapPickerScreen,
-  }, 
-  {
-    mode: 'modal'
   }
 );
 
