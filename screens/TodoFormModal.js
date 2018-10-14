@@ -1,15 +1,18 @@
 import React from "react";
+import { connect } from 'react-redux'
+
 import { StyleSheet, Text, View, Alert, Button, TextInput, Platform } from "react-native";
 import HeaderButton from "../components/HeaderButton";
 import DatePicker from "react-native-datepicker";
-import { Modal } from "react-native";
+import { addTodo } from '../actions/Todo-actions'
 
-export default class TodoForm extends React.Component {
-  static navigationOptions = ({ navigation }) => {
+
+class TodoForm extends React.Component {
+  static navigationOptions = ({ state, navigation }) => {
     return {
       headerTitle: "test",
       headerLeft: <HeaderButton onPress={() => navigation.goBack()} title="Cancel" />,
-      headerRight: <HeaderButton onPress={() => navigation.add()} disabled={true} title="Add" />
+      headerRight: <HeaderButton onPress={() => navigation.state.params.addNewTodo()} title="Add"/>
     };
   };
 
@@ -20,13 +23,17 @@ export default class TodoForm extends React.Component {
     };
   }
 
-  componentWillMount() {
-    this.props.navigation.setParams({ add: this.add });
+  componentDidMount() {
+    this.props.navigation.setParams({ addNewTodo: this.addNewTodo, canSave: this.canSave });
   }
 
   add = () => {
     console.log("save");
   };
+
+  canSave = () => {
+    return this.state.text !== undefined;
+  }
 
   addNewTodo = () => {
     // Kjør addNewTodo metoden til TodoScreen så alt av todo states blir gjort av den.
@@ -39,14 +46,10 @@ export default class TodoForm extends React.Component {
         { cancelable: false }
       );
     }
-    this.props.addNewTodo(this.state.text, this.state.date);
-    this.props.toggleModal();
-    this.clearForm();
-  };
-
-  clearForm = () => {
-    this.setState({ text: undefined });
-    this.setState({ date: undefined });
+    const { navigation } = this.props;
+    this.props.dispatch(addTodo(navigation.getParam('category'), this.state.text, this.state.date));
+    this.props.navigation.goBack();
+    //this.props.addNewTodo(this.state.text, this.state.date);
   };
 
   render() {
@@ -113,3 +116,5 @@ const styles = StyleSheet.create({
     fontSize: 18
   }
 });
+
+export default connect()(TodoForm)

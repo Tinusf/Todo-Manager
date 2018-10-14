@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import {
   ScrollView, View, Text, Dimensions
 } from 'react-native';
@@ -9,7 +10,7 @@ import TodoElement from "./TodoElement";
  * ScrollView.
  */
 
-export default class TodoList extends React.Component {
+class TodoList extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -41,3 +42,5 @@ export default class TodoList extends React.Component {
     );
   }
 }
+
+export default connect(state => ({ todos: state.todos }))(TodoList)

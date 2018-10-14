@@ -1,8 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { removeTodo, toggleTodo } from '../actions/Todo-actions'
+
 import { Text, View, StyleSheet, Button, TouchableOpacity } from 'react-native';
 import CheckBox from 'react-native-check-box';
 
-export default class TodoElement extends React.Component {
+ class TodoElement extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,14 +28,14 @@ export default class TodoElement extends React.Component {
         <CheckBox
           style={styles.CheckBox}
           onClick={() => {
-            this.props.toggleTodoStatus(this.props.id)
+            this.props.dispatch(toggleTodo(this.props.id))
           }}
           isChecked={this.props.completed}
           rightText={this.props.text}
           checkBoxColor={categoryToColor[this.props.category]}
         />
         <Text style={styles.dateText}>{this.props.date}</Text>
-        <TouchableOpacity style={styles.deleteButton} onPress={() => this.props.deleteTodo(this.props.id)}>
+        <TouchableOpacity style={styles.deleteButton} onPress={() => this.props.dispatch(removeTodo(this.props.id))}>
           <Text style={styles.deleteText}>X</Text>
         </TouchableOpacity>
     </View>
@@ -64,3 +67,4 @@ const styles = StyleSheet.create({
 
   },
 });
+export default connect()(TodoElement)
