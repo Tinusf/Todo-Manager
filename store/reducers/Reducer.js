@@ -1,5 +1,7 @@
 import { combineReducers } from "redux";
 import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from "../actions/Todo-actions";
+import PedometerSettings from "../../screens/PedometerSettings";
+import { SET_GOAL } from "../actions/Pedometer-actions";
 
 todos = (state = [], action) => {
   switch (action.type) {
@@ -24,9 +26,20 @@ todos = (state = [], action) => {
   }
 };
 
+pedometer = (state = {goal: 5000}, action) => {
+  switch (action.type) {
+    case SET_GOAL:
+      return Object.assign({}, state, {
+        goal: action.goal
+      })
+    default:
+      return state;
+  }
+};
 
 const todoApp = combineReducers({
-  todos
+  todos,
+  pedometer
 });
 
 export default todoApp;

@@ -5,14 +5,34 @@ import {
   Text
 } from 'react-native';
 import TodoCalendar from "../components/TodoCalendar";
+import { Platform } from 'react-native';
+import { Icon } from 'expo';
+import Colors from '../constants/Colors';
+
 import TodoList from "../components/TodoList";
 import Swiper from 'react-native-swiper';
 import TodoActionButton from "../components/TodoActionButton";
+import HeaderButton from "../components/HeaderButton";
+import TabBarIcon from '../components/TabBarIcon';
 
 
 export default class TodoScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Todo View',
+  static navigationOptions = ({ navigation }) => {
+    if(Platform.OS === 'ios'){
+      return {
+        headerTitle: "Todo's",
+        headerRight: <Icon.Ionicons
+        name="ios-add"
+        size={40}
+        onPress={() => navigation.navigate("TodoFormModal")} 
+        style={{paddingLeft: 10, paddingRight: 10 }}
+        color={Colors.tabIconDefault}
+      />
+      };
+    }
+    return {
+      headerTitle: "Todo's",
+    };
   };
 
   constructor(props) {
@@ -57,7 +77,7 @@ export default class TodoScreen extends React.Component {
           <TodoCalendar toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo}/>
           <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo}/>
         </Swiper>
-        <TodoActionButton navigate={this.props.navigation.navigate} setCategoryChosen={this.setCategoryChosen}/>
+        {Platform.OS !== 'ios' && <TodoActionButton navigate={this.props.navigation.navigate} setCategoryChosen={this.setCategoryChosen}/>}
           
       </View>
    );
@@ -67,7 +87,7 @@ export default class TodoScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: Colors.backgroundColor
   },
   swipe: {
 
