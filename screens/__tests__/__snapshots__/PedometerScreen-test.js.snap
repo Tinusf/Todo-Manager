@@ -4,10 +4,8 @@ exports[`PedometerScreen Matches snapshot. 1`] = `
 <Component
   style={
     Object {
-      "alignItems": "center",
       "backgroundColor": "#9DD6EB",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >
@@ -20,7 +18,7 @@ exports[`PedometerScreen Matches snapshot. 1`] = `
         "color": "#fff",
         "fontSize": 30,
         "fontWeight": "bold",
-        "padding": 10,
+        "padding": 30,
       }
     }
   >
@@ -38,14 +36,13 @@ exports[`PedometerScreen Matches snapshot. 1`] = `
         "color": "#fff",
         "fontSize": 30,
         "fontWeight": "bold",
-        "padding": 10,
+        "padding": 30,
       }
     }
   >
     Current step count: 
     
 
-     
     0
   </Text>
 </Component>
