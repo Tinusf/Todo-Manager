@@ -22,9 +22,9 @@ export default class TodoScreen extends React.Component {
       showCalendar: true,
       nextId: 4,
       // Uncomment for example todos!
-      todos: [
+      //todos: [
         // { id: 0, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 1, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }, { id: 2, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 3, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }
-       ]
+      // ]
     };
   }
 
@@ -45,18 +45,6 @@ export default class TodoScreen extends React.Component {
     });
   }
 
-  addNewTodo = (text, date) => {
-    // Legg til ett nytt todo objekt i staten vår. Og øk nextId med 1.
-    this.setState(prevState => ({
-      todos: [...prevState.todos, {"id": prevState.nextId, "text": text, "date": date, "category": this.state.category, "completed": false}],
-      nextId: prevState.nextId + 1
-    }));
-  }
-
-  toggleModal = () => {
-    // clear the text and date aswell as to toggle whether the modal is visible or not.
-    this.setState({ isModalVisible: !this.state.isModalVisible });
-  }
 
   setCategoryChosen = (category) => {
     this.setState({category: category});
@@ -66,10 +54,10 @@ export default class TodoScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Swiper style={styles.absoluteAndFill} loop={false}>
-          <TodoCalendar todos={this.state.todos} toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo}/>
-          <TodoList todos={this.state.todos} toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo}/>
+          <TodoCalendar toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo}/>
+          <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo}/>
         </Swiper>
-        <TodoActionButton onClick={this.props.navigation.navigate} toggleModal={this.toggleModal} setCategoryChosen={this.setCategoryChosen}/>
+        <TodoActionButton navigate={this.props.navigation.navigate} setCategoryChosen={this.setCategoryChosen}/>
           
       </View>
    );

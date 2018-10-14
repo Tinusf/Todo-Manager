@@ -1,50 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TodoScreen Matches snapshot. 1`] = `
-<Component
-  style={
-    Object {
-      "backgroundColor": "#fff",
-      "flex": 1,
-    }
-  }
->
-  <_default
-    automaticallyAdjustContentInsets={false}
-    autoplay={false}
-    autoplayDirection={true}
-    autoplayTimeout={2.5}
-    bounces={false}
-    disableNextButton={false}
-    horizontal={true}
-    index={0}
-    loadMinimal={false}
-    loadMinimalSize={1}
-    loop={false}
-    onIndexChanged={[Function]}
-    pagingEnabled={true}
-    removeClippedSubviews={true}
-    scrollsToTop={false}
-    showsButtons={false}
-    showsHorizontalScrollIndicator={false}
-    showsPagination={true}
-    showsVerticalScrollIndicator={false}
-    style={Object {}}
-  >
-    <TodoCalendar
-      deleteTodo={[Function]}
-      todos={Array []}
-      toggleTodoStatus={[Function]}
-    />
-    <TodoList
-      deleteTodo={[Function]}
-      todos={Array []}
-      toggleTodoStatus={[Function]}
-    />
-  </_default>
-  <TodoForm
-    setCategoryChosen={[Function]}
-    toggleModal={[Function]}
-  />
-</Component>
+<TodoScreen
+  navigation={Object {}}
+/>
 `;

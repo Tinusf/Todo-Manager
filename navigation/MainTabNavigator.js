@@ -7,13 +7,14 @@ import MapsScreen from '../screens/MapsScreen';
 import PedometerScreen from '../screens/PedometerScreen';
 import TodoScreen from '../screens/TodoScreen';
 import TodoFormModal from '../screens/TodoFormModal';
-
+import MapPickerScreen from '../screens/MapPickerScreen';
 
 
 const TodoStack = createStackNavigator(
   {
     TodoScreen: TodoScreen,
     TodoFormModal: TodoFormModal,
+    MapPickerScreen: MapPickerScreen,
   }, 
   {
     mode: 'modal'
@@ -27,8 +28,8 @@ TodoStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? `ios-checkbox${focused ? '' : '-outline'}`
+          : 'md-checkbox'
       }
     />
   ),
@@ -43,7 +44,7 @@ MapsStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
+      name={Platform.OS === 'ios' ? `ios-pin${focused ? '' : '-outline'}` : 'md-pin'}
     />
   ),
 };
@@ -57,7 +58,7 @@ PedometerStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
+      name={Platform.OS === 'ios' ? `ios-walk${focused ? '' : '-outline'}` : 'md-walk'}
     />
   ),
 };
