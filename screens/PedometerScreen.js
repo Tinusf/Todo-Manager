@@ -1,11 +1,20 @@
 import Expo from "expo";
 import React from "react";
 import { Pedometer } from "expo";
-import { StyleSheet, Text, View } from "react-native";
+import { connect } from "react-redux";
 
-export default class PedometerScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Pedometer View',
+import { StyleSheet, Text, View } from "react-native";
+import ProgressBar from "../components/ProgressBar";
+import HeaderButton from "../components/HeaderButton";
+import Colors from "../constants/Colors";
+
+class PedometerScreen extends React.Component {
+
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: "Todays progress",
+      headerRight: <HeaderButton onPress={() => navigation.navigate("PedometerSettings")} title="Edit goal" />
+    };
   };
   state = {
     pastStepCount: 0,
@@ -31,10 +40,15 @@ export default class PedometerScreen extends React.Component {
     });
 
     const end = new Date();
+    end.setHours(23)
+    end.setMinutes(59)
+    end.setSeconds(59)
+
     const start = new Date();
+    start.setHours(0)
+    start.setMinutes(0)
 
     // Setter start datoen til nå minus 24 timer
-    start.setDate(end.getDate() - 1);
 
     // Henter steps fra startdatoen til sluttdatoen og setter staten
     // Gir en feilmelding hvis det oppsår en error 
@@ -57,12 +71,24 @@ export default class PedometerScreen extends React.Component {
   };
 
   render() {
+    console.log(this.props)
+    const today = this.state.pastStepCount + this.state.currentStepCount;
+    const {goal} = this.props;
+    const percentage = Math.round(Math.min(today/goal * 100, 100));
+
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>
-          Steps last 24 hours: {"\n"}{this.state.pastStepCount + this.state.currentStepCount}
+        <Text style={styles.textHeader}>
+          {percentage === 100 ? "🏆" : "🏃‍"} 
         </Text>
-        <Text style={styles.text}>Current step count: {"\n"}{this.state.currentStepCount}</Text>
+
+        <ProgressBar percentage={percentage} />
+        <Text style={styles.textSmall}>
+          {percentage + "% completed of todays goal"}
+        </Text>
+        <Text style={styles.text}>
+          Steps today: {"\n"}{this.state.pastStepCount + this.state.currentStepCount}
+        </Text>
       </View>
     );
   }
@@ -71,14 +97,28 @@ export default class PedometerScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#9DD6EB'
+    padding: 30,
+    paddingTop: 50,
+    backgroundColor: Colors.backgroundColor
+  },
+  textHeader: {
+    fontSize: 70,
+    textAlign: 'center'
+  },
+  textSmall: {
+    fontSize: 14,
+    textAlign: 'center'
   },
   text: {
-    color: '#fff',
+    color: 'black',
+    textAlign: 'center',
     fontSize: 30,
-    fontWeight: 'bold',
     padding: 30,
   }
 });
+
+
+
+export default connect(state => ({ goal: state.pedometer.goal }))(PedometerScreen)
 
 Expo.registerRootComponent(PedometerScreen);

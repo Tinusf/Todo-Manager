@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-
+import Colors from "../constants/Colors";
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import {
   Image,
@@ -68,6 +68,10 @@ class TodoCalendar extends React.Component {
             Object.assign({}, this.createMarkedObject(this.props.todos), {[this.state.selectedDate]: {selected: true}})
           }
           markingType={'multi-dot'}
+          theme={{
+            todayTextColor: Colors.tintColor,
+            selectedDayBackgroundColor: Colors.tintColor,
+          }}
           />
         <TodoList chosenDay={this.state.selectedDate} smallWindow={true} toggleTodoStatus={this.props.toggleTodoStatus} deleteTodo={this.props.deleteTodo}></TodoList>
          
@@ -84,11 +88,10 @@ class TodoCalendar extends React.Component {
 
 const styles = StyleSheet.create({
   calendar: {
-    borderTopWidth: 1,
     paddingTop: 5,
-    borderBottomWidth: 1,
     borderColor: '#aaa',
     height: 310,
+    borderBottomColor: '#47315a', 
   },
   text: {
     textAlign: 'center',

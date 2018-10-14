@@ -37,7 +37,7 @@ import CheckBox from 'react-native-check-box';
         />
         <Text style={styles.dateText}>{this.props.date}</Text>
         <TouchableOpacity style={styles.deleteButton} onPress={() => this.props.dispatch(removeTodo(this.props.id))}>
-          <Text style={styles.deleteText}>X</Text>
+          <Text style={styles.deleteText}>☓</Text>
         </TouchableOpacity>
     </View>
     );

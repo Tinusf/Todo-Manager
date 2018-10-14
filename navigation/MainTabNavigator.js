@@ -5,6 +5,8 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import TabBarIcon from '../components/TabBarIcon';
 import MapsScreen from '../screens/MapsScreen';
 import PedometerScreen from '../screens/PedometerScreen';
+import PedometerSettings from '../screens/PedometerSettings';
+
 import TodoScreen from '../screens/TodoScreen';
 import TodoFormModal from '../screens/TodoFormModal';
 import MapPickerScreen from '../screens/MapPickerScreen';
@@ -48,6 +50,8 @@ MapsStack.navigationOptions = {
 
 const PedometerStack = createStackNavigator({
   Pedometer: PedometerScreen,
+  PedometerSettings: PedometerSettings,
+
 });
 
 PedometerStack.navigationOptions = {

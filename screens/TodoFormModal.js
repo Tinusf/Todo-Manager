@@ -1,47 +1,49 @@
 import React from "react";
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 
-import { StyleSheet, Text, View, Alert, Button, TextInput, Platform } from "react-native";
+import { StyleSheet, Text, View, Alert, Button, TextInput, Platform, Picker } from "react-native";
 import HeaderButton from "../components/HeaderButton";
 import DatePicker from "react-native-datepicker";
-import { addTodo } from '../store/actions/Todo-actions'
+import { addTodo } from "../store/actions/Todo-actions";
+import { Cell, Section, TableView } from "react-native-tableview-simple";
+import RNPickerSelect from 'react-native-picker-select';
 
+import Colors from "../constants/Colors";
 
 class TodoForm extends React.Component {
   static navigationOptions = ({ state, navigation }) => {
     return {
-      headerTitle: "test",
+      headerTitle: "Add new todo",
       headerLeft: <HeaderButton onPress={() => navigation.goBack()} title="Cancel" />,
-      headerRight: <HeaderButton onPress={() => navigation.state.params.addNewTodo()} title="Add"/>
+      headerRight: <HeaderButton onPress={() => navigation.state.params.addNewTodo()} title="Add" />
     };
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      helpAlert: true
+      helpAlert: true,
+      category: "Work"
     };
   }
 
   showMapPicker = () => {
-    this.props.navigation.navigate("MapPickerScreen", { addLocation: this.addLocation });
-  }
+    this.props.navigation.navigate("MapPickerScreen", { addLocation: this.addLocation });
+  };
 
-  addLocation = (coords) => {
-    this.setState({coords: coords});
-  }
+  addLocation = coords => {
+    this.setState({ coords: coords });
+  };
 
   componentDidMount() {
+    if(this.props.navigation.getParam("category"))
+      this.setState({ category: this.props.navigation.getParam("category") });
     this.props.navigation.setParams({ addNewTodo: this.addNewTodo, canSave: this.canSave });
   }
 
-  add = () => {
-    console.log("save");
-  };
-
   canSave = () => {
     return this.state.text !== undefined;
-  }
+  };
 
   addNewTodo = () => {
     // Kjør addNewTodo metoden til TodoScreen så alt av todo states blir gjort av den.
@@ -55,53 +57,100 @@ class TodoForm extends React.Component {
       );
     }
     const { navigation } = this.props;
-    this.props.dispatch(addTodo(navigation.getParam('category'), this.state.text, this.state.date, this.state.coords));
+    this.props.dispatch(addTodo(this.state.category, this.state.text, this.state.date, this.state.coords));
     this.props.navigation.goBack();
     //this.props.addNewTodo(this.state.text, this.state.date);
   };
 
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: "white" }}>
-        <TextInput
-          editable={true}
-          multiline
-          style={{ minHeight: 200 }}
-          onChangeText={text => this.setState({ text })}
-          value={this.state.text}
-          placeholder="Write something..."
-          placeholderTextColor="grey"
-          autoFocus={true}
-          underlineColorAndroid="rgba(0,0,0,0)"
-          onSubmitEditing={this.addNewTodo}
-        />
-        <Button title="Add location (optional)" onPress={this.showMapPicker}></Button>
+      <View style={styles.container}>
         <DatePicker
-          style={{ width: 200 }}
+          showIcon={false}
+          hideText={true}
+          style={{ height: 0, width: 0 }}
+          ref={ref => (this.datePickerRef = ref)}
           date={this.state.date}
           mode="date"
-          placeholder="select date"
+          customStyles={{
+            btnTextConfirm: {
+              color: Colors.tintColor
+            },
+            btnTextCancel: {
+              color: Colors.tintColor
+            }
+          }}
+          placeholder="Click here to select date"
           format="YYYY-MM-DD"
           minDate="1990-01-01"
+          showIcon={false}
           maxDate="2025-01-01"
           confirmBtnText="Confirm"
           cancelBtnText="Cancel"
-          customStyles={{
-            dateIcon: {
-              position: "absolute",
-              left: 0,
-              top: 4,
-              marginLeft: 0
-            },
-            dateInput: {
-              marginLeft: 36
-            }
-          }}
           onDateChange={date => {
             this.setState({ date: date });
           }}
         />
-        <Text>Add a date for your todo (optional)</Text>
+        <TableView style={styles.container}>
+          <Section>
+            <Cell
+              cellContentView={
+                <TextInput underlineColorAndroid="rgba(0,0,0,0)" style={{ fontSize: 16, flex: 1 }} autoFocus={true} onChangeText={text => this.setState({ text })} placeholder="Title" />
+              }
+            />
+            <RNPickerSelect
+              items={[
+                {
+                  label: "Work",
+                  value: "Work"
+                },
+                {
+                  label: "Fun",
+                  value: "Fun"
+                },
+                {
+                  label: "School",
+                  value: "School"
+                },
+                {
+                  label: "Other",
+                  value: "Other"
+                }
+              ]}
+              placeholder={{}}
+              value={this.state.category}
+              onValueChange={value => {
+                this.setState({
+                  category: value
+                });
+              }}
+            >
+              <Cell
+                cellStyle="RightDetail"
+                title="Category"
+                detail={this.state.category}
+              />
+            </RNPickerSelect>
+           
+          </Section>
+          <Section>
+            <Cell
+              cellStyle="RightDetail"
+              title="Date"
+              detail={this.state.date ? this.state.date : "Select"}
+              onPress={() => this.datePickerRef.onPressDate()}
+            />
+             <Cell
+              cellStyle="RightDetail"
+              title="Location"
+              accessory="DisclosureIndicator"
+              detail={this.state.coords ? "Selected" : " Select"}
+              onPress={this.showMapPicker}
+            />
+            
+
+          </Section>
+        </TableView>
       </View>
     );
   }
@@ -109,7 +158,9 @@ class TodoForm extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: Colors.backgroundColor,
+    height: "100%"
   },
   buttonContainer: {
     flex: 1,
@@ -126,4 +177,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect()(TodoForm)
+export default connect()(TodoForm);
