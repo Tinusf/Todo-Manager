@@ -1,13 +1,16 @@
 import React from "react";
 import ShallowRenderer from 'react-test-renderer/shallow';
 import TodoList from "../TodoList";
+import { Provider } from 'react-redux'
+import appState from '../../reducers/Reducer'
+import { createStore } from 'redux'
 
-const todos = [{ id: 1, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 2, text: "gjør webdev øvinga", date: "2018-10-04", category: "fun", completed: true }];
+const store = createStore(appState)
+
 
 it("TodoList Matches snapshot.", () => {
     const renderer = new ShallowRenderer();
-    renderer.render(<TodoList
-        todos={todos} />)
+    renderer.render(<Provider store={store}><TodoList /></Provider>)
     const result = renderer.getRenderOutput();
     expect(result).toMatchSnapshot();
 });

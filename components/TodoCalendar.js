@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux'
+
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import {
   Image,
@@ -14,12 +16,12 @@ import TodoList from "./TodoList";
 import TodoActionButton from "./TodoActionButton";
 
 
-export default class TodoCalendar extends React.Component {
+class TodoCalendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
     this.todos = [ { id: 0, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 1, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }, { id: 2, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 3, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }
-  ]
+    ]
     this.onDayPress = this.onDayPress.bind(this);
   }
   static navigationOptions = {
@@ -63,11 +65,11 @@ export default class TodoCalendar extends React.Component {
           horizontal={true}
           pagingEnabled = {true}
           markedDates={
-            Object.assign({}, this.createMarkedObject(this.todos), {[this.state.selectedDate]: {selected: true}})
+            Object.assign({}, this.createMarkedObject(this.props.todos), {[this.state.selectedDate]: {selected: true}})
           }
           markingType={'multi-dot'}
           />
-        <TodoList chosenDay={this.state.selectedDate} todos={this.todos} smallWindow={true} toggleTodoStatus={this.props.toggleTodoStatus} deleteTodo={this.props.deleteTodo}></TodoList>
+        <TodoList chosenDay={this.state.selectedDate} smallWindow={true} toggleTodoStatus={this.props.toggleTodoStatus} deleteTodo={this.props.deleteTodo}></TodoList>
          
        </View>
     );
@@ -93,3 +95,5 @@ const styles = StyleSheet.create({
     padding: 10,
   }
 });
+
+export default connect(state => ({ todos: state.todos }))(TodoCalendar)
