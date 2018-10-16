@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { StyleSheet, Text, View, Alert, Button, TextInput, Platform } from "react-native";
 import HeaderButton from "../components/HeaderButton";
-import { setGoal } from "../store/actions/Pedometer-actions";
+import { setGoal } from "../store/actions/Settings-actions";
 import { Cell, Section, TableView } from "react-native-tableview-simple";
 import Colors from "../constants/Colors";
 
@@ -53,4 +53,4 @@ class PedometerSettings extends React.Component {
   }
 }
 
-export default connect(state => ({ goal: state.pedometer.goal }))(PedometerSettings);
+export default connect(state => ({ goal: state.settings.goal }))(PedometerSettings);

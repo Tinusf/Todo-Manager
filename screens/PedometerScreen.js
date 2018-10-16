@@ -122,6 +122,6 @@ const styles = StyleSheet.create({
 
 
 
-export default connect(state => ({ goal: state.pedometer.goal }))(PedometerScreen)
+export default connect(state => ({ goal: state.settings.goal }))(PedometerScreen)
 
 Expo.registerRootComponent(PedometerScreen);
