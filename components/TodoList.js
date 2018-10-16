@@ -16,9 +16,10 @@ class TodoList extends React.Component {
   }
 
   render() {
-    // Om du ikke har valgt en chosenDay så skal du få en liste av alle todosene, om du har valgt en chosenDay så skal du bare få de todosene med date som er chosenDay.
-    let todos = this.props.todos
+    // Om du ikke har valgt en chosenDay så skal du få en liste av alle todosene, om du har valgt en chosenDay så skal du bare få de todosene med date som er chosenDay. Legg på slice for å kopiere og ikke endre på todo listen vår.
+    let todos = this.props.todos.slice(0)
     .sort((a,b) => a.completed - b.completed)
+    .filter((todo) => this.props.smallWindow || this.props.chosenCategory == todo.category)
     .map((todo) => {
       if (!this.props.chosenDay || (this.props.chosenDay && this.props.chosenDay === todo["date"])) {
         return (
@@ -38,7 +39,7 @@ class TodoList extends React.Component {
     let { height, width } = Dimensions.get('window');
     // TODO finn bedre måte å sette høyden til scrollview. Men andre tingene på skjermen: kalendern, topbar og bottombaren er veldig nærme 440.
     return (
-      <View  style={this.props.smallWindow ? { height: height-440} : {height: "100%"}}>
+      <View style={this.props.smallWindow ? { height: height-440} : {height: "25%"}}>
         <ScrollView>{todos}</ScrollView>
       </View>
     );

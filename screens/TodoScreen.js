@@ -75,7 +75,16 @@ export default class TodoScreen extends React.Component {
       <View style={styles.container}>
         <Swiper activeDotColor={Colors.tintColor} loop={false}>
           <TodoCalendar toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo}/>
-          <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo}/>
+          <View style={StyleSheet.absoluteFill}>
+            <Text>Work</Text>
+            <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo} chosenCategory="work" />
+            <Text>School</Text>
+            <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo} chosenCategory="school" />
+            <Text>Fun</Text>
+            <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo} chosenCategory="fun" />
+            <Text>Other</Text>
+            <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo} chosenCategory="other" />
+          </View>
         </Swiper>
         {Platform.OS !== 'ios' && <TodoActionButton navigate={this.props.navigation.navigate} setCategoryChosen={this.setCategoryChosen}/>}
           
