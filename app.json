@@ -30,7 +30,11 @@
       "package": "com.gr36.pimm",
       "config": {
         "googleMaps": {
-          "apiKey": ""
+          "apiKey": "Ligger på Gdoccen"
+        },
+        "googleSignIn": {
+          "apiKey": "Ligger på Gdoccen",
+          "certificateHash": "Ligger på Gdoccen"
         }
       }
     }
