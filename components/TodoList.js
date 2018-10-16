@@ -27,7 +27,7 @@ class TodoList extends React.Component {
           key={todo["id"]}
           id={todo["id"]}
           text={todo["text"]}
-          date={this.props.smallWindow ? undefined : todo["date"]}
+          date={this.props.smallWindow ? todo["date"] : todo["date"]}
           completed={todo["completed"]}
           category={todo["category"]} 
           toggleTodoStatus={this.props.toggleTodoStatus}

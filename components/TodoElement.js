@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import { removeTodo, toggleTodo } from '../store/actions/Todo-actions'
 
 import { Text, View, StyleSheet, Button, TouchableOpacity } from 'react-native';
-import CheckBox from 'react-native-check-box';
+import CheckBox from './CheckBox';
 import Colors from '../constants/Colors';
+import { Icon } from 'expo';
 
 
  class TodoElement extends React.Component {
@@ -18,26 +19,57 @@ import Colors from '../constants/Colors';
   render() {
     // Lager et objekt git ut en farge basert på kategori
     // Brukes til å gi checkBox korrekt farge
-    const categoryToColor = {
-      'work': 'red',
-      'school': 'blue',
-      'fun': 'orange',
-      'other': 'green'
-    };
 
+    const categories = {
+      'work': {
+        color: '#ff3b30',
+        icon: 'briefcase'
+      },
+      'school': {
+        color: '#007aff',
+        icon: 'school'
+      },
+      'fun': {
+        color: '#ff9500',
+        icon: 'beer'
+      },
+      'other': {
+        color: '#5856d6',
+        icon: 'apps'
+      },
+    };
+    const category = categories[this.props.category.toLowerCase()];
+    console.log(category)
     return (
     <View style={styles.container}>
-        <CheckBox
-          style={styles.CheckBox}
-          onClick={() => {
-            this.props.dispatch(toggleTodo(this.props.id))
-          }}
-          isChecked={this.props.completed}
-          rightText={this.props.text}
-          rightTextStyle={this.props.completed ? { textDecorationLine: 'line-through', textDecorationStyle: 'solid'} : {}}
-          checkBoxColor={categoryToColor[this.props.category]}
-        />
-        <Text style={styles.dateText}>{this.props.date}</Text>
+        <TouchableOpacity style={styles.deleteButton} onPress={() => this.props.dispatch(toggleTodo(this.props.id))}>
+        <View style={styles.info}>
+            <View style={{width: 34}}>
+            <Icon.Ionicons
+              name={(Platform.OS === 'ios' ? "ios-" : "md-") + category.icon }
+              size={30}
+              style={styles.icon}
+              color={category.color }
+            />
+            </View>
+          {/*  <CheckBox
+              style={styles.CheckBox}
+              onClick={() => {
+                this.props.dispatch(toggleTodo(this.props.id))
+              }}
+              isChecked={this.props.completed}
+              rightText={this.props.text}
+              rightTextStyle={this.props.completed ? { textDecorationLine: 'line-through', textDecorationStyle: 'solid'} : {}}
+              //checkBoxColor={categoryToColor[this.props.category]}
+            /> */}
+            <CheckBox color={category.color} styles={styles.checkbox} checked={this.props.completed} />
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.title}>{this.props.text}</Text>
+              <Text style={styles.dateText}>{this.props.date}</Text>
+            </View>
+        </View>
+        </TouchableOpacity>
+
         <TouchableOpacity style={styles.deleteButton} onPress={() => this.props.dispatch(removeTodo(this.props.id))}>
           <Text style={styles.deleteText}>X</Text>
         </TouchableOpacity>
@@ -52,18 +84,34 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 10,
+    padding: 3,
+    paddingLeft: 20,
     backgroundColor: 'white',
     borderColor: Colors.gray,
     borderTopWidth: 0.5,
   },
-  dateText: {
-    paddingTop: 12.5,
+  icon: {
+    paddingTop: 5
   },
-  CheckBox: {
-   flex: 1,
-   padding: 10,
-   borderRadius: 100
+  info: {
+    width: "100%",
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start'
+  },
+  title: {
+    paddingTop: 4,
+    fontSize: 16,
+  },
+  dateText: {
+    paddingTop: 2,
+    fontSize: 12,
+    color: 'gray'
+  },
+  checkbox: {
+   padding: 5,
+   paddingTop: 10,
+   margin: 10
   },
   deleteButton: {
     padding: 8,
@@ -71,6 +119,7 @@ const styles = StyleSheet.create({
   deleteText: {
     color: 'red',
     fontSize: 20,
+    paddingTop: 7
 
   },
 });

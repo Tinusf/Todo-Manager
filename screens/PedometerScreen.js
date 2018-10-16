@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 30,
     paddingTop: 50,
-    backgroundColor: Colors.backgroundColor
+    backgroundColor: 'white'
   },
   textHeader: {
     fontSize: 70,
