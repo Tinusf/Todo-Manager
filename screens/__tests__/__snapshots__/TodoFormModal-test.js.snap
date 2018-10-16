@@ -1,12 +1,271 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TodoFormModal Matches snapshot. 1`] = `
-<Connect(TodoForm)
-  isModalVisible={true}
-  navigation={
+<Component
+  style={
     Object {
-      "setParams": [Function],
+      "backgroundColor": "#efeff4",
+      "flex": 1,
+      "height": "100%",
     }
   }
-/>
+>
+  <DatePicker
+    TouchableComponent={[Function]}
+    allowFontScaling={true}
+    androidMode="default"
+    cancelBtnText="Cancel"
+    confirmBtnText="Confirm"
+    customStyles={
+      Object {
+        "btnTextCancel": Object {
+          "color": "#ff2d55",
+        },
+        "btnTextConfirm": Object {
+          "color": "#ff2d55",
+        },
+      }
+    }
+    date=""
+    disabled={false}
+    duration={300}
+    format="YYYY-MM-DD"
+    height={259}
+    hideText={true}
+    iconSource={1}
+    maxDate="2025-01-01"
+    minDate="1990-01-01"
+    modalOnResponderTerminationRequest={[Function]}
+    mode="date"
+    onDateChange={[Function]}
+    placeholder="Click here to select date"
+    showIcon={false}
+    style={
+      Object {
+        "height": 0,
+        "width": 0,
+      }
+    }
+  />
+  <TableView
+    style={
+      Object {
+        "backgroundColor": "#efeff4",
+        "flex": 1,
+        "height": "100%",
+      }
+    }
+  >
+    <Section
+      allowFontScaling={true}
+      footer={null}
+      footerComponent={null}
+      footerTextColor="#6d6d72"
+      header={null}
+      headerComponent={null}
+      headerTextColor="#6D6D72"
+      hideSeparator={false}
+      sectionPaddingBottom={15}
+      sectionPaddingTop={15}
+      sectionTintColor="#EFEFF4"
+      separatorInsetLeft={15}
+      separatorInsetRight={0}
+      separatorTintColor="#C8C7CC"
+    >
+      <Cell
+        accessory={false}
+        accessoryColor="#007AFF"
+        accessoryColorDisclosureIndicator="#C7C7CC"
+        allowFontScaling={true}
+        backgroundColor="#FFF"
+        cellAccessoryView={null}
+        cellContentView={
+          <TextInput
+            allowFontScaling={true}
+            autoFocus={true}
+            onChangeText={[Function]}
+            placeholder="Title"
+            style={
+              Object {
+                "flex": 1,
+                "fontSize": 16,
+              }
+            }
+            underlineColorAndroid="rgba(0,0,0,0)"
+          />
+        }
+        cellImageView={null}
+        cellStyle="Basic"
+        contentContainerStyle={Object {}}
+        detail=""
+        detailTextStyle={Object {}}
+        disableImageResize={false}
+        hideSeparator={false}
+        highlightActiveOpacity={0.8}
+        highlightUnderlayColor="black"
+        image={null}
+        isDisabled={false}
+        leftDetailColor="#007AFF"
+        onHighlightRow={null}
+        onPress={false}
+        onUnHighlightRow={null}
+        rightDetailColor="#8E8E93"
+        subtitleColor="#000"
+        subtitleTextStyle={Object {}}
+        title=""
+        titleTextColor="#000"
+        titleTextStyle={Object {}}
+        titleTextStyleDisabled={Object {}}
+      />
+      <RNPickerSelect
+        animationType="slide"
+        disabled={false}
+        doneText="Done"
+        hideDoneBar={false}
+        hideIcon={false}
+        itemKey={null}
+        items={
+          Array [
+            Object {
+              "label": "Work",
+              "value": "Work",
+            },
+            Object {
+              "label": "Fun",
+              "value": "Fun",
+            },
+            Object {
+              "label": "School",
+              "value": "School",
+            },
+            Object {
+              "label": "Other",
+              "value": "Other",
+            },
+          ]
+        }
+        mode="dialog"
+        onDonePress={null}
+        onDownArrow={null}
+        onUpArrow={null}
+        onValueChange={[Function]}
+        placeholder={Object {}}
+        placeholderTextColor="#C7C7CD"
+        style={Object {}}
+        value="Work"
+      >
+        <Cell
+          accessory={false}
+          accessoryColor="#007AFF"
+          accessoryColorDisclosureIndicator="#C7C7CC"
+          allowFontScaling={true}
+          backgroundColor="#FFF"
+          cellAccessoryView={null}
+          cellContentView={null}
+          cellImageView={null}
+          cellStyle="RightDetail"
+          contentContainerStyle={Object {}}
+          detail="Work"
+          detailTextStyle={Object {}}
+          disableImageResize={false}
+          hideSeparator={false}
+          highlightActiveOpacity={0.8}
+          highlightUnderlayColor="black"
+          image={null}
+          isDisabled={false}
+          leftDetailColor="#007AFF"
+          onHighlightRow={null}
+          onPress={false}
+          onUnHighlightRow={null}
+          rightDetailColor="#8E8E93"
+          subtitleColor="#000"
+          subtitleTextStyle={Object {}}
+          title="Category"
+          titleTextColor="#000"
+          titleTextStyle={Object {}}
+          titleTextStyleDisabled={Object {}}
+        />
+      </RNPickerSelect>
+    </Section>
+    <Section
+      allowFontScaling={true}
+      footer={null}
+      footerComponent={null}
+      footerTextColor="#6d6d72"
+      header={null}
+      headerComponent={null}
+      headerTextColor="#6D6D72"
+      hideSeparator={false}
+      sectionPaddingBottom={15}
+      sectionPaddingTop={15}
+      sectionTintColor="#EFEFF4"
+      separatorInsetLeft={15}
+      separatorInsetRight={0}
+      separatorTintColor="#C8C7CC"
+    >
+      <Cell
+        accessory={false}
+        accessoryColor="#007AFF"
+        accessoryColorDisclosureIndicator="#C7C7CC"
+        allowFontScaling={true}
+        backgroundColor="#FFF"
+        cellAccessoryView={null}
+        cellContentView={null}
+        cellImageView={null}
+        cellStyle="RightDetail"
+        contentContainerStyle={Object {}}
+        detail="Select"
+        detailTextStyle={Object {}}
+        disableImageResize={false}
+        hideSeparator={false}
+        highlightActiveOpacity={0.8}
+        highlightUnderlayColor="black"
+        image={null}
+        isDisabled={false}
+        leftDetailColor="#007AFF"
+        onHighlightRow={null}
+        onPress={[Function]}
+        onUnHighlightRow={null}
+        rightDetailColor="#8E8E93"
+        subtitleColor="#000"
+        subtitleTextStyle={Object {}}
+        title="Date"
+        titleTextColor="#000"
+        titleTextStyle={Object {}}
+        titleTextStyleDisabled={Object {}}
+      />
+      <Cell
+        accessory="DisclosureIndicator"
+        accessoryColor="#007AFF"
+        accessoryColorDisclosureIndicator="#C7C7CC"
+        allowFontScaling={true}
+        backgroundColor="#FFF"
+        cellAccessoryView={null}
+        cellContentView={null}
+        cellImageView={null}
+        cellStyle="RightDetail"
+        contentContainerStyle={Object {}}
+        detail=" Select"
+        detailTextStyle={Object {}}
+        disableImageResize={false}
+        hideSeparator={false}
+        highlightActiveOpacity={0.8}
+        highlightUnderlayColor="black"
+        image={null}
+        isDisabled={false}
+        leftDetailColor="#007AFF"
+        onHighlightRow={null}
+        onPress={[Function]}
+        onUnHighlightRow={null}
+        rightDetailColor="#8E8E93"
+        subtitleColor="#000"
+        subtitleTextStyle={Object {}}
+        title="Location"
+        titleTextColor="#000"
+        titleTextStyle={Object {}}
+        titleTextStyleDisabled={Object {}}
+      />
+    </Section>
+  </TableView>
+</Component>
 `;

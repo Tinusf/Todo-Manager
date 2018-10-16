@@ -1,7 +1,100 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TodoScreen Matches snapshot. 1`] = `
-<TodoScreen
-  navigation={Object {}}
-/>
+<Component
+  style={
+    Object {
+      "backgroundColor": "#efeff4",
+      "flex": 1,
+    }
+  }
+>
+  <_default
+    activeDotColor="#ff2d55"
+    automaticallyAdjustContentInsets={false}
+    autoplay={false}
+    autoplayDirection={true}
+    autoplayTimeout={2.5}
+    bounces={false}
+    disableNextButton={false}
+    horizontal={true}
+    index={0}
+    loadMinimal={false}
+    loadMinimalSize={1}
+    loop={false}
+    onIndexChanged={[Function]}
+    pagingEnabled={true}
+    removeClippedSubviews={true}
+    scrollsToTop={false}
+    showsButtons={false}
+    showsHorizontalScrollIndicator={false}
+    showsPagination={true}
+    showsVerticalScrollIndicator={false}
+  >
+    <Connect(TodoCalendar)
+      deleteTodo={[Function]}
+      toggleTodoStatus={[Function]}
+    />
+    <Component
+      style={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        Work
+      </Text>
+      <Connect(TodoList)
+        chosenCategory="work"
+        deleteTodo={[Function]}
+        toggleTodoStatus={[Function]}
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        School
+      </Text>
+      <Connect(TodoList)
+        chosenCategory="school"
+        deleteTodo={[Function]}
+        toggleTodoStatus={[Function]}
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        Fun
+      </Text>
+      <Connect(TodoList)
+        chosenCategory="fun"
+        deleteTodo={[Function]}
+        toggleTodoStatus={[Function]}
+      />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        Other
+      </Text>
+      <Connect(TodoList)
+        chosenCategory="other"
+        deleteTodo={[Function]}
+        toggleTodoStatus={[Function]}
+      />
+    </Component>
+  </_default>
+</Component>
 `;

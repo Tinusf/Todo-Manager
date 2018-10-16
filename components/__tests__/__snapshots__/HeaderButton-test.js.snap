@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderButton Matches snapshot. 1`] = `
+<Button
+  background="transparent"
+  color="#ff2d55"
+  isModalVisible={false}
+  navigation={
+    Object {
+      "getParam": [Function],
+      "setParams": [Function],
+    }
+  }
+  onPress={[Function]}
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+  style={
+    Object {
+      "fontWeight": "bold",
+    }
+  }
+  title="test"
+/>
+`;

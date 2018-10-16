@@ -1,3 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PedometerScreen Matches snapshot. 1`] = `<Connect(PedometerScreen) />`;
+exports[`PedometerScreen Matches snapshot. 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+      "padding": 30,
+      "paddingTop": 50,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 70,
+        "textAlign": "center",
+      }
+    }
+  >
+    🏃‍
+  </Text>
+  <ProgressBar
+    percentage={0}
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 14,
+        "textAlign": "center",
+      }
+    }
+  >
+    0% completed of todays goal
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "black",
+        "fontSize": 30,
+        "padding": 30,
+        "textAlign": "center",
+      }
+    }
+  >
+    Steps today: 
+    
+
+    0
+  </Text>
+</Component>
+`;

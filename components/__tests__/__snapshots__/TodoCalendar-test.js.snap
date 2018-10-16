@@ -1,3 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TodoCalendar Matches snapshot. 1`] = `<Connect(TodoCalendar) />`;
+exports[`TodoCalendar Matches snapshot. 1`] = `
+<Component>
+  <CalendarList
+    calendarHeight={360}
+    calendarWidth={750}
+    futureScrollRange={50}
+    hideExtraDays={true}
+    horizontal={true}
+    markedDates={
+      Object {
+        "undefined": Object {
+          "selected": true,
+        },
+      }
+    }
+    markingType="multi-dot"
+    onDayPress={[Function]}
+    pagingEnabled={true}
+    pastScrollRange={50}
+    removeClippedSubviews={true}
+    scrollEnabled={true}
+    scrollsToTop={false}
+    showScrollIndicator={false}
+    showWeekNumbers={true}
+    style={
+      Object {
+        "borderBottomColor": "#47315a",
+        "borderColor": "#aaa",
+        "height": 310,
+        "paddingTop": 5,
+      }
+    }
+    theme={
+      Object {
+        "selectedDayBackgroundColor": "#ff2d55",
+        "todayTextColor": "#ff2d55",
+      }
+    }
+  />
+  <Connect(TodoList)
+    smallWindow={true}
+  />
+</Component>
+`;

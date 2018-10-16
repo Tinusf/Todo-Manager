@@ -1,7 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MapsScreen Matches snapshot. 1`] = `
-<Connect(MapsScreen)
-  navigation={Object {}}
-/>
+<Component
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <MapView
+    onRegionChangeComplete={[Function]}
+    region={
+      Object {
+        "latitude": 0,
+        "latitudeDelta": 100,
+        "longitude": 0,
+        "longitudeDelta": 100,
+      }
+    }
+    showsUserLocation={true}
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  />
+</Component>
 `;

@@ -1,16 +1,17 @@
 import React from "react";
 import ShallowRenderer from 'react-test-renderer/shallow';
 import TodoFormModal from "../TodoFormModal";
-import { Provider } from 'react-redux'
 import appState from '../../store/reducers/Reducer'
-import { createStore } from 'redux'
+import { createStore } from 'redux';
 
 const store = createStore(appState)
 
-
 it("TodoFormModal Matches snapshot.", () => {
     const renderer = new ShallowRenderer();
-    renderer.render(<Provider store={store}><TodoFormModal navigation={{setParams: () => {}}} isModalVisible={true}/></Provider>)
-    const result = renderer.getRenderOutput();
+    renderer.render(<TodoFormModal store={store} navigation={{ getParam: () => { }, setParams: () => { } }} isModalVisible={false} />);
+
+    const renderer2 = new ShallowRenderer();
+    renderer2.render(renderer.getRenderOutput());
+    const result = renderer2.getRenderOutput();
     expect(result).toMatchSnapshot();
 });
