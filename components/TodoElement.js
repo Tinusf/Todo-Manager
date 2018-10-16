@@ -23,7 +23,6 @@ import Categories from '../constants/Categories';
 
 
     const category = Categories[this.props.category.toLowerCase()];
-    console.log(category)
     return (
     <View style={styles.container}>
         <TouchableOpacity style={styles.deleteButton} onPress={() => this.props.dispatch(toggleTodo(this.props.id))}>
