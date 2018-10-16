@@ -23,12 +23,12 @@ class TodoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: "Work"
+      category: "work"
     };
   }
 
   showMapPicker = () => {
-    this.props.navigation.navigate("MapPickerScreen", { addLocation: this.addLocation });
+    this.props.navigation.navigate("MapPickerScreen", { addLocation: this.addLocation, category: this.state.category });
   };
 
   addLocation = coords => {
@@ -102,19 +102,19 @@ class TodoForm extends React.Component {
               items={[
                 {
                   label: "Work",
-                  value: "Work"
+                  value: "work"
                 },
                 {
                   label: "Fun",
-                  value: "Fun"
+                  value: "fun"
                 },
                 {
                   label: "School",
-                  value: "School"
+                  value: "school"
                 },
                 {
                   label: "Other",
-                  value: "Other"
+                  value: "other"
                 }
               ]}
               placeholder={{}}

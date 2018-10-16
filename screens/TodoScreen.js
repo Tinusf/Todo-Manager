@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   StyleSheet,
+  ScrollView,
   View,
   Text
 } from 'react-native';
@@ -20,7 +21,7 @@ export default class TodoScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     if(Platform.OS === 'ios'){
       return {
-        headerTitle: "Todo's",
+        headerTitle: "Todos",
         headerRight: <Icon.Ionicons
         name="ios-add"
         size={40}
@@ -31,7 +32,7 @@ export default class TodoScreen extends React.Component {
       };
     }
     return {
-      headerTitle: "Todo's",
+      headerTitle: "Todos",
     };
   };
 
@@ -75,16 +76,12 @@ export default class TodoScreen extends React.Component {
       <View style={styles.container}>
         <Swiper activeDotColor={Colors.tintColor} loop={false}>
           <TodoCalendar toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo}/>
-          <View style={StyleSheet.absoluteFill}>
-            <Text>Work</Text>
+          <ScrollView style={this.fullTodoList}>
             <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo} chosenCategory="work" />
-            <Text>School</Text>
             <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo} chosenCategory="school" />
-            <Text>Fun</Text>
             <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo} chosenCategory="fun" />
-            <Text>Other</Text>
             <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo} chosenCategory="other" />
-          </View>
+          </ScrollView>
         </Swiper>
         {Platform.OS !== 'ios' && <TodoActionButton navigate={this.props.navigation.navigate} setCategoryChosen={this.setCategoryChosen}/>}
           
@@ -97,6 +94,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.backgroundColor
+  },
+  fullTodoList: {
+    height: "100%",
   },
   swipe: {
 

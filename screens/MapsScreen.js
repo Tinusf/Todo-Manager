@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
 import { MapView, Permissions, Location } from 'expo';
+import Categories from '../constants/Categories';
 
 class MapsScreen extends React.Component {
   static navigationOptions = {
-    title: 'Map View',
+    title: 'Map of todos',
   };
 
   state = {
@@ -45,12 +46,7 @@ class MapsScreen extends React.Component {
   };
 
   render() {
-    const categoryToColor = {
-      'work': 'red',
-      'school': 'blue',
-      'fun': 'orange',
-      'other': 'green'
-    };
+  
 
     return (
       <View style={styles.container}>
@@ -70,7 +66,7 @@ class MapsScreen extends React.Component {
               coordinate={todo["coords"]}
               title={todo["category"]}
               description={todo["text"]}
-              pinColor={categoryToColor[todo["category"]]}
+              pinColor={Categories[todo["category"]].color}
             />
           )} 
 

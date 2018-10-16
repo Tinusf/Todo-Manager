@@ -12,7 +12,7 @@ class PedometerScreen extends React.Component {
 
   static navigationOptions = ({ navigation }) => {
     return {
-      headerTitle: "Todays progress",
+      headerTitle: "Today's progress",
       headerRight: <HeaderButton onPress={() => navigation.navigate("PedometerSettings")} title="Edit goal" />
     };
   };
@@ -87,7 +87,7 @@ class PedometerScreen extends React.Component {
 
         <ProgressBar percentage={percentage} />
         <Text style={styles.textSmall}>
-          {percentage + "% completed of todays goal"}
+          {percentage + "% completed of today' s goal"}
         </Text>
         <Text style={styles.text}>
           Steps today: {"\n"}{this.state.pastStepCount + this.state.currentStepCount}
