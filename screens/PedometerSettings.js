@@ -20,7 +20,8 @@ class PedometerSettings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      helpAlert: true
+      helpAlert: true,
+      goal: this.props.goal
     };
   }
 
@@ -42,7 +43,7 @@ class PedometerSettings extends React.Component {
           <Section>
             <Cell
               cellContentView={
-                <TextInput style={{ fontSize: 16, flex: 1 }}  keyboardType='numeric' maxLength={10} autoFocus={true} onChangeText={text => this.setState({ goal: text })} value={this.props.goal} placeholder="Goal" />
+                <TextInput underlineColorAndroid="rgba(0,0,0,0)" style={{ fontSize: 16, flex: 1 }}  keyboardType='numeric' maxLength={10} autoFocus={true} onChangeText={text => this.setState({ goal: text })} value={this.state.goal} placeholder="Goal" />
               }
             />
           </Section>

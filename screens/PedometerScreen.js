@@ -23,6 +23,7 @@ class PedometerScreen extends React.Component {
 
   // Kjør _subscribe nå PedometerScreen lastes
   componentDidMount() {
+    // Expo.Google.logInAsync(androidStandaloneAppClientId ="Ligger på Gdoccen.")
     this._subscribe();
   }
 

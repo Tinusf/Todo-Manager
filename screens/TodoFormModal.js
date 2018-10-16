@@ -95,7 +95,11 @@ class TodoForm extends React.Component {
           <Section>
             <Cell
               cellContentView={
+<<<<<<< HEAD
                 <TextInput style={{ fontSize: 16, flex: 1 }} autoFocus={true} onChangeText={text => this.setState({ text })} placeholder="Title" />
+=======
+                <TextInput underlineColorAndroid="rgba(0,0,0,0)" style={{ fontSize: 16, flex: 1 }} autoFocus={true} onChangeText={text => this.setState({ text })} placeholder="Title" />
+>>>>>>> fc12c7f30ee0a6f8b9f784402d5d4279e1e2e5f3
               }
             />
             <RNPickerSelect
