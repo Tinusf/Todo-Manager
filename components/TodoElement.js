@@ -4,6 +4,8 @@ import { removeTodo, toggleTodo } from '../store/actions/Todo-actions'
 
 import { Text, View, StyleSheet, Button, TouchableOpacity } from 'react-native';
 import CheckBox from 'react-native-check-box';
+import Colors from '../constants/Colors';
+
 
  class TodoElement extends React.Component {
   constructor(props) {
@@ -37,7 +39,7 @@ import CheckBox from 'react-native-check-box';
         />
         <Text style={styles.dateText}>{this.props.date}</Text>
         <TouchableOpacity style={styles.deleteButton} onPress={() => this.props.dispatch(removeTodo(this.props.id))}>
-          <Text style={styles.deleteText}>☓</Text>
+          <Text style={styles.deleteText}>X</Text>
         </TouchableOpacity>
     </View>
     );
@@ -51,6 +53,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 10,
+    backgroundColor: 'white',
+    borderColor: Colors.gray,
+    borderTopWidth: 0.5,
   },
   dateText: {
     paddingTop: 12.5,
@@ -58,6 +63,7 @@ const styles = StyleSheet.create({
   CheckBox: {
    flex: 1,
    padding: 10,
+   borderRadius: 100
   },
   deleteButton: {
     padding: 8,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, Text } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
@@ -10,6 +10,7 @@ import PedometerSettings from '../screens/PedometerSettings';
 import TodoScreen from '../screens/TodoScreen';
 import TodoFormModal from '../screens/TodoFormModal';
 import MapPickerScreen from '../screens/MapPickerScreen';
+import Colors from '../constants/Colors';
 
 
 const TodoStack = createStackNavigator(
@@ -22,6 +23,10 @@ const TodoStack = createStackNavigator(
 
 TodoStack.navigationOptions = {
   tabBarLabel: 'Todo',
+  tabBarTintColor: 'white',
+  tabBarOptions: {
+    activeTintColor: Colors.tabIconSelected,
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -40,6 +45,9 @@ const MapsStack = createStackNavigator({
 
 MapsStack.navigationOptions = {
   tabBarLabel: 'Maps',
+  tabBarOptions: {
+    activeTintColor: Colors.tabIconSelected,
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -56,6 +64,9 @@ const PedometerStack = createStackNavigator({
 
 PedometerStack.navigationOptions = {
   tabBarLabel: 'Pedometer',
+  tabBarOptions: {
+    activeTintColor: Colors.tabIconSelected,
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}

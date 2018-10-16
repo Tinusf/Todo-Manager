@@ -26,7 +26,7 @@ export default class TodoScreen extends React.Component {
         size={40}
         onPress={() => navigation.navigate("TodoFormModal")} 
         style={{paddingLeft: 10, paddingRight: 10 }}
-        color={Colors.tabIconDefault}
+        color={Colors.tintColor}
       />
       };
     }
@@ -73,7 +73,7 @@ export default class TodoScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Swiper style={styles.absoluteAndFill} loop={false}>
+        <Swiper activeDotColor={Colors.tintColor} loop={false}>
           <TodoCalendar toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo}/>
           <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo}/>
         </Swiper>

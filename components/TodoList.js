@@ -38,7 +38,7 @@ class TodoList extends React.Component {
     let { height, width } = Dimensions.get('window');
     // TODO finn bedre måte å sette høyden til scrollview. Men andre tingene på skjermen: kalendern, topbar og bottombaren er veldig nærme 440.
     return (
-      <View style={this.props.smallWindow ? { height: height-440} : {height: "100%"}}>
+      <View  style={this.props.smallWindow ? { height: height-440} : {height: "100%"}}>
         <ScrollView>{todos}</ScrollView>
       </View>
     );

@@ -48,6 +48,8 @@ class PedometerScreen extends React.Component {
     const start = new Date();
     start.setHours(0)
     start.setMinutes(0)
+    start.setSeconds(0)
+
 
     // Setter start datoen til nå minus 24 timer
 
