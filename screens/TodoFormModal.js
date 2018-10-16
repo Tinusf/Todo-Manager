@@ -9,6 +9,7 @@ import { Cell, Section, TableView } from "react-native-tableview-simple";
 import RNPickerSelect from 'react-native-picker-select';
 
 import Colors from "../constants/Colors";
+import { toggleHelp } from "../store/actions/Settings-actions";
 
 class TodoForm extends React.Component {
   static navigationOptions = ({ state, navigation }) => {
@@ -22,7 +23,6 @@ class TodoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      helpAlert: true,
       category: "Work"
     };
   }
@@ -47,12 +47,12 @@ class TodoForm extends React.Component {
 
   addNewTodo = () => {
     // Kjør addNewTodo metoden til TodoScreen så alt av todo states blir gjort av den.
-    if (this.state.helpAlert && this.state.date === undefined) {
+    if (this.props.helpAlert && this.state.date === undefined) {
       // Om brukern ikke har valgt en dato burde det komme en liten varsling om at den ikke kan bli sett i kalendern.
       Alert.alert(
         "No date chosen",
         "You have not chosen a date and will therefore not be able to view your todo in Calender mode, swipe right to view your todos without date.",
-        [{ text: "Never remind me again", onPress: () => this.setState({ helpAlert: false }) }, { text: "OK" }],
+        [{ text: "Never remind me again", onPress: () => this.props.dispatch(toggleHelp()) }, { text: "OK" }],
         { cancelable: false }
       );
     }
@@ -177,4 +177,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect()(TodoForm);
+export default connect(state => ({ helpAlert: state.settings.helpAlert }))(TodoForm);
