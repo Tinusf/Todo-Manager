@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TodoList Matches snapshot. 1`] = `<Connect(TodoList) />`;
+exports[`TodoList Matches snapshot. 1`] = `
+<Component
+  style={
+    Object {
+      "height": "25%",
+    }
+  }
+>
+  <ScrollViewMock />
+</Component>
+`;
