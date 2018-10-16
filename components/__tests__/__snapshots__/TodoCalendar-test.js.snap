@@ -1,7 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TodoCalendar Matches snapshot. 1`] = `
-<Component>
+<Component
+  style={
+    Object {
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "flex-start",
+      "width": "100%",
+    }
+  }
+>
   <CalendarList
     calendarHeight={360}
     calendarWidth={750}
@@ -10,7 +19,7 @@ exports[`TodoCalendar Matches snapshot. 1`] = `
     horizontal={true}
     markedDates={
       Object {
-        "undefined": Object {
+        "2018-10-16": Object {
           "selected": true,
         },
       }
@@ -28,7 +37,7 @@ exports[`TodoCalendar Matches snapshot. 1`] = `
       Object {
         "borderBottomColor": "#47315a",
         "borderColor": "#aaa",
-        "height": 310,
+        "height": 130,
         "paddingTop": 5,
       }
     }
@@ -39,8 +48,18 @@ exports[`TodoCalendar Matches snapshot. 1`] = `
       }
     }
   />
-  <Connect(TodoList)
-    smallWindow={true}
-  />
+  <ScrollViewMock
+    style={
+      Object {
+        "flex": 1,
+        "height": "100%",
+      }
+    }
+  >
+    <Connect(TodoList)
+      chosenDay="2018-10-16"
+      smallWindow={true}
+    />
+  </ScrollViewMock>
 </Component>
 `;

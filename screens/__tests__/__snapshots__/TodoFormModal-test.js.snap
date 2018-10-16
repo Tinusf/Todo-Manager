@@ -128,19 +128,19 @@ exports[`TodoFormModal Matches snapshot. 1`] = `
           Array [
             Object {
               "label": "Work",
-              "value": "Work",
+              "value": "work",
             },
             Object {
               "label": "Fun",
-              "value": "Fun",
+              "value": "fun",
             },
             Object {
               "label": "School",
-              "value": "School",
+              "value": "school",
             },
             Object {
               "label": "Other",
-              "value": "Other",
+              "value": "other",
             },
           ]
         }
@@ -152,7 +152,7 @@ exports[`TodoFormModal Matches snapshot. 1`] = `
         placeholder={Object {}}
         placeholderTextColor="#C7C7CD"
         style={Object {}}
-        value="Work"
+        value="work"
       >
         <Cell
           accessory={false}
@@ -165,7 +165,7 @@ exports[`TodoFormModal Matches snapshot. 1`] = `
           cellImageView={null}
           cellStyle="RightDetail"
           contentContainerStyle={Object {}}
-          detail="Work"
+          detail="work"
           detailTextStyle={Object {}}
           disableImageResize={false}
           hideSeparator={false}

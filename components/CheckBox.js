@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    StyleSheet, View, Text
+    StyleSheet, View, Text, Platform
   } from 'react-native';
 import Colors from '../constants/Colors';
 import { Icon } from 'expo';

@@ -5,8 +5,8 @@ exports[`TodoElement Matches snapshot. 1`] = `
   style={
     Object {
       "backgroundColor": "white",
-      "borderColor": undefined,
-      "borderTopWidth": 0.5,
+      "borderColor": "gray",
+      "borderTopWidth": 0.25,
       "flex": 1,
       "flexDirection": "row",
       "justifyContent": "space-between",
@@ -44,7 +44,7 @@ exports[`TodoElement Matches snapshot. 1`] = `
       >
         <Icon
           allowFontScaling={false}
-          color="#ff3b30"
+          color="#51acf2"
           name="ios-briefcase"
           size={30}
           style={
@@ -56,7 +56,7 @@ exports[`TodoElement Matches snapshot. 1`] = `
       </Component>
       <CheckBox
         checked={false}
-        color="#ff3b30"
+        color="#51acf2"
         styles={
           Object {
             "margin": 10,
@@ -119,6 +119,7 @@ exports[`TodoElement Matches snapshot. 1`] = `
         Object {
           "color": "red",
           "fontSize": 20,
+          "paddingRight": 10,
           "paddingTop": 7,
         }
       }

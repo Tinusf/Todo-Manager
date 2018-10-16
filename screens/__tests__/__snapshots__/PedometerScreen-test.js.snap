@@ -38,7 +38,7 @@ exports[`PedometerScreen Matches snapshot. 1`] = `
       }
     }
   >
-    0% completed of todays goal
+    0% completed of today' s goal
   </Text>
   <Text
     accessible={true}

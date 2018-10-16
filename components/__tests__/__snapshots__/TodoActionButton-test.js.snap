@@ -44,8 +44,16 @@ exports[`TodoActionButton Matches snapshot. 1`] = `
   >
     <FloatingActionItem
       active={false}
-      color="red"
+      color="white"
       distanceToEdge={30}
+      icon={
+        <Icon
+          allowFontScaling={false}
+          color="#51acf2"
+          name="ios-briefcase"
+          size={30}
+        />
+      }
       margin={8}
       name="work"
       onPress={[Function]}
@@ -58,8 +66,16 @@ exports[`TodoActionButton Matches snapshot. 1`] = `
     />
     <FloatingActionItem
       active={false}
-      color="blue"
+      color="white"
       distanceToEdge={30}
+      icon={
+        <Icon
+          allowFontScaling={false}
+          color="#7bd34c"
+          name="ios-school"
+          size={30}
+        />
+      }
       margin={8}
       name="school"
       onPress={[Function]}
@@ -72,8 +88,16 @@ exports[`TodoActionButton Matches snapshot. 1`] = `
     />
     <FloatingActionItem
       active={false}
-      color="orange"
+      color="white"
       distanceToEdge={30}
+      icon={
+        <Icon
+          allowFontScaling={false}
+          color="#f5c445"
+          name="ios-beer"
+          size={30}
+        />
+      }
       margin={8}
       name="fun"
       onPress={[Function]}
@@ -86,8 +110,16 @@ exports[`TodoActionButton Matches snapshot. 1`] = `
     />
     <FloatingActionItem
       active={false}
-      color="green"
+      color="white"
       distanceToEdge={30}
+      icon={
+        <Icon
+          allowFontScaling={false}
+          color="#b25fd3"
+          name="ios-apps"
+          size={30}
+        />
+      }
       margin={8}
       name="other"
       onPress={[Function]}

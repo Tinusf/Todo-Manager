@@ -4,7 +4,9 @@ exports[`TodoList Matches snapshot. 1`] = `
 <Component
   style={
     Object {
-      "height": "25%",
+      "flex": 1,
+      "flexDirection": "column",
+      "width": "100%",
     }
   }
 >

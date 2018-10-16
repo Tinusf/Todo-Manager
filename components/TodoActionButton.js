@@ -1,9 +1,10 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { Icon } from "expo";
+import { StyleSheet, Platform } from "react-native";
 import { FloatingAction } from "react-native-floating-action";
 import Categories from '../constants/Categories';
 
-export default class TodoForm extends React.Component {
+export default class TodoActionButton extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -15,25 +16,49 @@ export default class TodoForm extends React.Component {
       {
         text: "Work",
         name: "work",
-        color: Categories["work"].color,
+        color: "white",
+        icon: 
+        <Icon.Ionicons
+          name={(Platform.OS === 'ios' ? "ios-" : "md-") + Categories["work"].icon}
+          size={30}
+          color={Categories["work"].color}
+        />,
         position: 1
       },
       {
         text: "School",
         name: "school",
-        color: Categories["school"].color,
+        color: "white",
+        icon:
+          <Icon.Ionicons
+            name={(Platform.OS === 'ios' ? "ios-" : "md-") + Categories["school"].icon}
+            size={30}
+            color={Categories["school"].color}
+          />,
         position: 2
       },
       {
         text: "Fun",
         name: "fun",
-        color: Categories["fun"].color,
+        color: "white",
+        icon:
+          <Icon.Ionicons
+            name={(Platform.OS === 'ios' ? "ios-" : "md-") + Categories["fun"].icon}
+            size={30}
+            color={Categories["fun"].color}
+          />,
         position: 3
       },
       {
         text: "Other",
         name: "other",
-        color: Categories["other"].color,
+        color: "white",
+        icon:
+          <Icon.Ionicons
+            name={(Platform.OS === 'ios' ? "ios-" : "md-") + Categories["other"].icon}
+            size={30}
+            color={Categories["other"].color}
+          />,
         position: 4
       }
     ];
