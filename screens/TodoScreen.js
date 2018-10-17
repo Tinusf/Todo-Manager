@@ -3,18 +3,14 @@ import {
   StyleSheet,
   ScrollView,
   View,
-  Text
 } from 'react-native';
 import TodoCalendar from "../components/TodoCalendar";
 import { Platform } from 'react-native';
 import { Icon } from 'expo';
 import Colors from '../constants/Colors';
-
 import TodoList from "../components/TodoList";
 import Swiper from 'react-native-swiper';
 import TodoActionButton from "../components/TodoActionButton";
-import HeaderButton from "../components/HeaderButton";
-import TabBarIcon from '../components/TabBarIcon';
 
 
 export default class TodoScreen extends React.Component {

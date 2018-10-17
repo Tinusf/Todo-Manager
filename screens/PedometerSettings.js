@@ -1,11 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-
-import { StyleSheet, Text, View, Alert, Button, TextInput, Platform } from "react-native";
+import { View, TextInput} from "react-native";
 import HeaderButton from "../components/HeaderButton";
 import { setGoal } from "../store/actions/Settings-actions";
 import { Cell, Section, TableView } from "react-native-tableview-simple";
-import Colors from "../constants/Colors";
 
 
 class PedometerSettings extends React.Component {

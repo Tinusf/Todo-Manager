@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "expo";
-import { StyleSheet, Platform } from "react-native";
+import { Platform } from "react-native";
 import { FloatingAction } from "react-native-floating-action";
 import Categories from '../constants/Categories';
 import Colors from '../constants/Colors';

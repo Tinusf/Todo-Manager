@@ -1,13 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-
-import { StyleSheet, Text, View, Alert, Button, TextInput, Platform, Picker } from "react-native";
+import { StyleSheet, View, Alert, TextInput } from "react-native";
 import HeaderButton from "../components/HeaderButton";
 import DatePicker from "react-native-datepicker";
 import { addTodo } from "../store/actions/Todo-actions";
 import { Cell, Section, TableView } from "react-native-tableview-simple";
 import RNPickerSelect from 'react-native-picker-select';
-
 import Colors from "../constants/Colors";
 import { toggleHelp } from "../store/actions/Settings-actions";
 

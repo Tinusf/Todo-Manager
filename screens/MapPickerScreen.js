@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { MapView, Permissions, Location } from 'expo';
-import Categories from '../constants/Categories';
 
 export default class MapPickerScreen extends React.Component {
   state = {

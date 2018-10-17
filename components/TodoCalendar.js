@@ -1,10 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import Colors from "../constants/Colors";
-import { Calendar, CalendarList, Agenda } from "react-native-calendars";
-import { Image, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View, Alert } from "react-native";
+import { CalendarList } from "react-native-calendars";
+import {ScrollView, StyleSheet, View} from "react-native";
 import TodoList from "./TodoList";
-import TodoActionButton from "./TodoActionButton";
 import Categories from '../constants/Categories';
 
 class TodoCalendar extends React.Component {

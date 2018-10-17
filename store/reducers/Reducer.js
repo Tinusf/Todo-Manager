@@ -1,6 +1,5 @@
 import { combineReducers } from "redux";
 import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from "../actions/Todo-actions";
-import PedometerSettings from "../../screens/PedometerSettings";
 import { SET_GOAL, TOGGLE_HELP } from "../actions/Settings-actions";
 
 todos = (state = [], action) => {
