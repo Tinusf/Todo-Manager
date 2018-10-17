@@ -25,7 +25,7 @@ todos = (state = [], action) => {
   }
 };
 
-settings = (state = {goal: 5000, helpAlert: true}, action) => {
+settings = (state = {goal: "5000", helpAlert: true}, action) => {
   switch (action.type) {
     case SET_GOAL:
       return Object.assign({}, state, {

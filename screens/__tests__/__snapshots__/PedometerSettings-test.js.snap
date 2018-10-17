@@ -48,7 +48,7 @@ exports[`PedometerSettings Matches snapshot. 1`] = `
               }
             }
             underlineColorAndroid="rgba(0,0,0,0)"
-            value={5000}
+            value="5000"
           />
         }
         cellImageView={null}
