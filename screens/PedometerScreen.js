@@ -2,11 +2,9 @@ import Expo from "expo";
 import React from "react";
 import { Pedometer } from "expo";
 import { connect } from "react-redux";
-
 import { StyleSheet, Text, View } from "react-native";
 import ProgressBar from "../components/ProgressBar";
 import HeaderButton from "../components/HeaderButton";
-import Colors from "../constants/Colors";
 
 class PedometerScreen extends React.Component {
 
@@ -17,29 +15,16 @@ class PedometerScreen extends React.Component {
     };
   };
   state = {
-    pastStepCount: 0,
-    currentStepCount: 0
+    stepCount: 0,
   };
 
-  // Kjør _subscribe nå PedometerScreen lastes
+  // Kjør _refresh nå PedometerScreen lastes
   componentDidMount() {
     // Expo.Google.logInAsync(androidStandaloneAppClientId ="Ligger på Gdoccen.")
-    this._subscribe();
+    this._refresh()
   }
 
-  // Kjør _unsubscribe når PedometerScreen unmounter
-  componentWillUnmount() {
-    this._unsubscribe();
-  }
-
-  _subscribe = () => {
-    this._subscription = Pedometer.watchStepCount(result => {
-      this.setState({
-        // Oppdater skrittene
-        currentStepCount: result.steps,
-      });
-    });
-
+  _refresh = () => {
     const end = new Date();
     end.setHours(23)
     end.setMinutes(59)
@@ -50,31 +35,25 @@ class PedometerScreen extends React.Component {
     start.setMinutes(0)
     start.setSeconds(0)
 
-
-    // Setter start datoen til nå minus 24 timer
-
     // Henter steps fra startdatoen til sluttdatoen og setter staten
-    // Gir en feilmelding hvis det oppsår en error 
+    // Gir en feilmelding hvis det oppstår en error 
     Pedometer.getStepCountAsync(start, end).then(
       result => {
-        this.setState({ pastStepCount: result.steps });
+        this.setState({ stepCount: result.steps });
       },
       error => {
         this.setState({
-          pastStepCount: "Could not get past step count: " + error
+          stepCount: "Could not get past step count: " + error
         });
       }
     );
-  };
-
-  // Fjern subscription hvis den ikke er null og sett den til null
-  _unsubscribe = () => {
-    this._subscription && this._subscription.remove();
-    this._subscription = null;
+    
+    // 5 sekunder etter man har fått forrige resultat kjøres _refresh() på nytt
+    setTimeout(() => {this._refresh()}, 5000);
   };
 
   render() {
-    const today = this.state.pastStepCount + this.state.currentStepCount;
+    const today = this.state.stepCount;
     const {goal} = this.props;
     const percentage = Math.round(Math.min(today/goal * 100, 100));
 
@@ -89,7 +68,7 @@ class PedometerScreen extends React.Component {
           {percentage + "% completed of today' s goal"}
         </Text>
         <Text style={styles.text}>
-          Steps today: {"\n"}{this.state.pastStepCount + this.state.currentStepCount}
+          Steps today: {"\n"}{this.state.stepCount}
         </Text>
       </View>
     );
@@ -118,8 +97,6 @@ const styles = StyleSheet.create({
     padding: 30,
   }
 });
-
-
 
 export default connect(state => ({ goal: state.settings.goal }))(PedometerScreen)
 
