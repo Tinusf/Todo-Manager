@@ -19,6 +19,7 @@ import TabBarIcon from '../components/TabBarIcon';
 
 export default class TodoScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
+    // Bare ios skal ha + knappen oppe til høyre, fordi dette er standard for ios apper, mens android bruker den klassiske store blå knappen nede til høyre istedenfor.
     if(Platform.OS === 'ios'){
       return {
         headerTitle: "Todos",
@@ -40,32 +41,9 @@ export default class TodoScreen extends React.Component {
     super(props);
     this.state = {
       isModalVisible: false,
-      showCalendar: true,
-      nextId: 4,
-      // Uncomment for example todos!
-      //todos: [
-        // { id: 0, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 1, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }, { id: 2, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 3, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }
-      // ]
+      showCalendar: true
     };
   }
-
-  deleteTodo = (id) => {
-    const todos = this.state.todos;
-    delete todos[id];
-    this.setState({
-      todos: todos,
-    });
-  }
-
-  toggleTodoStatus = (id) => {
-    // Toggler statusen til todo'en.
-    const todos = this.state.todos;
-    todos[id]["completed"] = !todos[id]["completed"];
-    this.setState({
-      todos: todos,
-    });
-  }
-
 
   setCategoryChosen = (category) => {
     this.setState({category: category});
@@ -75,12 +53,12 @@ export default class TodoScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Swiper activeDotColor={Colors.tintColor} loop={false}>
-          <TodoCalendar toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo}/>
+          <TodoCalendar/>
           <ScrollView style={this.fullTodoList}>
-            <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo} chosenCategory="work" />
-            <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo} chosenCategory="school" />
-            <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo} chosenCategory="fun" />
-            <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo} chosenCategory="other" />
+            <TodoList chosenCategory="work" />
+            <TodoList chosenCategory="school" />
+            <TodoList chosenCategory="fun" />
+            <TodoList chosenCategory="other" />
           </ScrollView>
         </Swiper>
         {Platform.OS !== 'ios' && <TodoActionButton navigate={this.props.navigation.navigate} setCategoryChosen={this.setCategoryChosen}/>}

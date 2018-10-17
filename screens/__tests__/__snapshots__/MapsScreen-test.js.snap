@@ -12,10 +12,10 @@ exports[`MapsScreen Matches snapshot. 1`] = `
     onRegionChangeComplete={[Function]}
     region={
       Object {
-        "latitude": 0,
-        "latitudeDelta": 100,
-        "longitude": 0,
-        "longitudeDelta": 100,
+        "latitude": 64,
+        "latitudeDelta": 14,
+        "longitude": 13,
+        "longitudeDelta": 25,
       }
     }
     showsUserLocation={true}

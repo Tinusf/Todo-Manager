@@ -12,6 +12,7 @@ export default class TodoActionButton extends React.Component {
   render() {
     
     // actions er hvilken handlinger du kan gjøre etter du har trykker på den store + knappen. Vi har valgt å ha kategorier her.
+    // Så bruker vi konstanten vår Categories for å hente ut hvilket ikon og hvilken farge etc etc de skal ha.
     const actions = [
       {
         text: "Work",

@@ -10,8 +10,8 @@ class MapsScreen extends React.Component {
   };
 
   state = {
-    // Før du har fetched første resultat fra gpsen så skal du bare være zoomer ut og se hele verdenskartet.
-    mapRegion: { latitude: 0, longitude: 0, latitudeDelta: 100, longitudeDelta: 100 },
+    // Før du har fetched første resultat fra gpsen så skal du bare være zoomer ut og se norgeskartet.
+    mapRegion: { latitude: 64, longitude: 13, latitudeDelta: 14, longitudeDelta: 25 },
     currentLocationResult: null,
   };
 
@@ -26,6 +26,7 @@ class MapsScreen extends React.Component {
 
   _getLocationAsyncAndSetRegion = async () => {
     // Kjøres for å zoome inn på riktig sted i verden. Første gps lokasjonen som du får.
+    // Må først spør om permissions for locations.
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
       this.setState({
@@ -40,9 +41,6 @@ class MapsScreen extends React.Component {
     const latDelta = 0.0922;
     const longDelta = 0.0421;
     this.setState({ mapRegion: { latitude: lat, longitude: long, latitudeDelta: latDelta, longitudeDelta: longDelta } })
-
-    // this.setState({ currentLocationResult: { coords: { "latitude": location["coords"]["latitude"], "longitude": location["coords"]["longitude"] } } });
-
   };
 
   render() {

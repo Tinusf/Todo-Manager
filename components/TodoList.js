@@ -17,26 +17,23 @@ class TodoList extends React.Component {
   }
 
   render() {
-    // Om du ikke har valgt en chosenDay så skal du få en liste av alle todosene, om du har valgt en chosenDay så skal du bare få de todosene med date som er chosenDay. Legg på slice for å kopiere og ikke endre på todo listen vår.
+    // Om du ikke har valgt en chosenDay så skal du få en liste av alle todosene, om du har valgt en chosenDay så skal du bare få de todosene med date som er chosenDay. Legg på slice for å kopiere og ikke endre på todo listen vår. Har også chosenCateory for å velge bare en type kategori. 
     let todos = this.props.todos.slice(0)
     .filter((todo) => this.props.smallWindow || this.props.chosenCategory == todo.category.toLowerCase())
+    .filter((todo) => !this.props.chosenDay || (this.props.chosenDay && this.props.chosenDay === todo["date"]))
     .map((todo) => {
-      if (!this.props.chosenDay || (this.props.chosenDay && this.props.chosenDay === todo["date"])) {
-        return (
-            <TodoElement 
-            key={todo["id"]}
-            id={todo["id"]}
-            text={todo["text"]}
-            date={this.props.smallWindow ? todo["date"] : todo["date"]}
-            completed={todo["completed"]}
-            category={todo["category"]} 
-            toggleTodoStatus={this.props.toggleTodoStatus}
-            deleteTodo={this.props.deleteTodo}/>
-        )
-      }
+      return (
+        <TodoElement 
+        key={todo["id"]}
+        id={todo["id"]}
+        text={todo["text"]}
+        date={this.props.smallWindow ? todo["date"] : todo["date"]}
+        completed={todo["completed"]}
+        category={todo["category"]} 
+        />
+      )
     });
     
-    // TODO finn bedre måte å sette høyden til scrollview. Men andre tingene på skjermen: kalendern, topbar og bottombaren er veldig nærme 440.
     return (
       <View style={styles.container}>
         <ScrollView>

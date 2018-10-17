@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "pro3",
+    "name": "Todo & Motivation",
     "description": "A very interesting project.",
-    "slug": "pro3",
+    "slug": "Todo_and_Motivation",
     "privacy": "public",
     "sdkVersion": "30.0.0",
     "platforms": [

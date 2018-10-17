@@ -74,7 +74,6 @@ class PedometerScreen extends React.Component {
   };
 
   render() {
-    console.log(this.props)
     const today = this.state.pastStepCount + this.state.currentStepCount;
     const {goal} = this.props;
     const percentage = Math.round(Math.min(today/goal * 100, 100));

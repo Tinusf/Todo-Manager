@@ -19,7 +19,7 @@ exports[`TodoCalendar Matches snapshot. 1`] = `
     horizontal={true}
     markedDates={
       Object {
-        "2018-10-16": Object {
+        "2018-10-17": Object {
           "selected": true,
         },
       }
@@ -57,7 +57,7 @@ exports[`TodoCalendar Matches snapshot. 1`] = `
     }
   >
     <Connect(TodoList)
-      chosenDay="2018-10-16"
+      chosenDay="2018-10-17"
       smallWindow={true}
     />
   </ScrollViewMock>

@@ -31,30 +31,19 @@ exports[`TodoScreen Matches snapshot. 1`] = `
     showsPagination={true}
     showsVerticalScrollIndicator={false}
   >
-    <Connect(TodoCalendar)
-      deleteTodo={[Function]}
-      toggleTodoStatus={[Function]}
-    />
+    <Connect(TodoCalendar) />
     <ScrollViewMock>
       <Connect(TodoList)
         chosenCategory="work"
-        deleteTodo={[Function]}
-        toggleTodoStatus={[Function]}
       />
       <Connect(TodoList)
         chosenCategory="school"
-        deleteTodo={[Function]}
-        toggleTodoStatus={[Function]}
       />
       <Connect(TodoList)
         chosenCategory="fun"
-        deleteTodo={[Function]}
-        toggleTodoStatus={[Function]}
       />
       <Connect(TodoList)
         chosenCategory="other"
-        deleteTodo={[Function]}
-        toggleTodoStatus={[Function]}
       />
     </ScrollViewMock>
   </_default>

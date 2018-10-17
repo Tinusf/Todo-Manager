@@ -12,16 +12,9 @@ import Categories from '../constants/Categories';
  class TodoElement extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      checkBoxStatus: this.props.completed
-    };
   }
 
   render() {
-    // Lager et objekt git ut en farge basert på kategori
-    // Brukes til å gi checkBox korrekt farge
-
-
     const category = Categories[this.props.category.toLowerCase()];
     return (
     <View style={styles.container}>
@@ -35,16 +28,6 @@ import Categories from '../constants/Categories';
               color={category.color }
             />
             </View>
-          {/*  <CheckBox
-              style={styles.CheckBox}
-              onClick={() => {
-                this.props.dispatch(toggleTodo(this.props.id))
-              }}
-              isChecked={this.props.completed}
-              rightText={this.props.text}
-              rightTextStyle={this.props.completed ? { textDecorationLine: 'line-through', textDecorationStyle: 'solid'} : {}}
-              //checkBoxColor={categoryToColor[this.props.category]}
-            /> */}
             <CheckBox color={category.color} styles={styles.checkbox} checked={this.props.completed} />
             <View style={{flexDirection: 'column'}}>
               <Text style={styles.title}>{this.props.text}</Text>
