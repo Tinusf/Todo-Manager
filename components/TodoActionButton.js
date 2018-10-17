@@ -3,6 +3,7 @@ import { Icon } from "expo";
 import { StyleSheet, Platform } from "react-native";
 import { FloatingAction } from "react-native-floating-action";
 import Categories from '../constants/Categories';
+import Colors from '../constants/Colors';
 
 export default class TodoActionButton extends React.Component {
   constructor(props) {
@@ -65,6 +66,7 @@ export default class TodoActionButton extends React.Component {
     ];
     return (
       <FloatingAction
+        color={Colors.tintColor}
         actions={actions}
         position="right"
         onPressItem={name =>

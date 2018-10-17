@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PedometerSettings Matches snapshot. 1`] = `
+<Component
+  style={
+    Object {
+      "backgroundColor": "#EFEFF4",
+      "flex": 1,
+    }
+  }
+>
+  <TableView>
+    <Section
+      allowFontScaling={true}
+      footer={null}
+      footerComponent={null}
+      footerTextColor="#6d6d72"
+      header={null}
+      headerComponent={null}
+      headerTextColor="#6D6D72"
+      hideSeparator={false}
+      sectionPaddingBottom={15}
+      sectionPaddingTop={15}
+      sectionTintColor="#EFEFF4"
+      separatorInsetLeft={15}
+      separatorInsetRight={0}
+      separatorTintColor="#C8C7CC"
+    >
+      <Cell
+        accessory={false}
+        accessoryColor="#007AFF"
+        accessoryColorDisclosureIndicator="#C7C7CC"
+        allowFontScaling={true}
+        backgroundColor="#FFF"
+        cellAccessoryView={null}
+        cellContentView={
+          <TextInput
+            allowFontScaling={true}
+            autoFocus={true}
+            keyboardType="numeric"
+            maxLength={10}
+            onChangeText={[Function]}
+            placeholder="Goal"
+            style={
+              Object {
+                "flex": 1,
+                "fontSize": 16,
+              }
+            }
+            underlineColorAndroid="rgba(0,0,0,0)"
+            value={5000}
+          />
+        }
+        cellImageView={null}
+        cellStyle="Basic"
+        contentContainerStyle={Object {}}
+        detail=""
+        detailTextStyle={Object {}}
+        disableImageResize={false}
+        hideSeparator={false}
+        highlightActiveOpacity={0.8}
+        highlightUnderlayColor="black"
+        image={null}
+        isDisabled={false}
+        leftDetailColor="#007AFF"
+        onHighlightRow={null}
+        onPress={false}
+        onUnHighlightRow={null}
+        rightDetailColor="#8E8E93"
+        subtitleColor="#000"
+        subtitleTextStyle={Object {}}
+        title=""
+        titleTextColor="#000"
+        titleTextStyle={Object {}}
+        titleTextStyleDisabled={Object {}}
+      />
+    </Section>
+  </TableView>
+</Component>
+`;

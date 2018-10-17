@@ -154,7 +154,7 @@ exports[`TodoActionButton Matches snapshot. 1`] = `
         },
         Object {},
         Object {
-          "backgroundColor": "#1253bc",
+          "backgroundColor": "#ff2d55",
           "bottom": 30,
           "right": 30,
         },
