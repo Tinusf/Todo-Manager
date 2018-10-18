@@ -83,11 +83,6 @@ const styles = StyleSheet.create({
     borderColor: "#aaa",
     height: 130,
     borderBottomColor: "#47315a"
-  },
-  text: {
-    textAlign: "center",
-    borderColor: "#bbb",
-    padding: 10
   }
 });
 

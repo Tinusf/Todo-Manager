@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { StyleSheet, View, Alert, TextInput } from "react-native";
+import { View, Alert, TextInput } from "react-native";
 import HeaderButton from "../components/HeaderButton";
 import DatePicker from "react-native-datepicker";
 import { addTodo } from "../store/actions/Todo-actions";
@@ -9,7 +9,7 @@ import RNPickerSelect from 'react-native-picker-select';
 import Colors from "../constants/Colors";
 import { toggleHelp } from "../store/actions/Settings-actions";
 
-class TodoForm extends React.Component {
+class TodoFormModal extends React.Component {
   static navigationOptions = ({ state, navigation }) => {
     return {
       headerTitle: "Add new todo",
@@ -21,6 +21,7 @@ class TodoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      // Default kategori er work (fordi iOS kan se denne komponenten uten å ha valgt noe enda.)
       category: "work"
     };
   }
@@ -40,13 +41,13 @@ class TodoForm extends React.Component {
   }
 
   canSave = () => {
+    // Hvis du har skrevet noe i teksboksen så kan du save todoen.
     return this.state.text !== undefined;
   };
 
   addNewTodo = () => {
-    // Kjør addNewTodo metoden til TodoScreen så alt av todo states blir gjort av den.
     if (this.props.helpAlert && this.state.date === undefined) {
-      // Om brukern ikke har valgt en dato burde det komme en liten varsling om at den ikke kan bli sett i kalendern.
+      // Om brukern ikke har valgt en dato kommer det en liten varsling om at den ikke kan bli sett i kalendern.
       Alert.alert(
         "No date chosen",
         "You have not chosen a date and will therefore not be able to view your todo in Calender mode, swipe right to view your todos without date.",
@@ -57,7 +58,6 @@ class TodoForm extends React.Component {
     const { navigation } = this.props;
     this.props.dispatch(addTodo(this.state.category, this.state.text, this.state.date, this.state.coords));
     this.props.navigation.goBack();
-    //this.props.addNewTodo(this.state.text, this.state.date);
   };
 
   render() {
@@ -154,25 +154,4 @@ class TodoForm extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.backgroundColor,
-    height: "100%"
-  },
-  buttonContainer: {
-    flex: 1,
-    maxHeight: 50,
-    flexDirection: "row",
-    justifyContent: "space-around",
-    padding: 10
-  },
-  button: {
-    width: "45%"
-  },
-  textInput: {
-    fontSize: 18
-  }
-});
-
-export default connect(state => ({ helpAlert: state.settings.helpAlert }))(TodoForm);
+export default connect(state => ({ helpAlert: state.settings.helpAlert }))(TodoFormModal);

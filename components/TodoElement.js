@@ -7,8 +7,10 @@ import CheckBox from './CheckBox';
 import { Icon } from 'expo';
 import Categories from '../constants/Categories';
 
-
- class TodoElement extends React.Component {
+/**
+ * Et TodoElement er bare et ikon, checkbox, tekst og en sletteknapp. Du kan også trykke på ikonet/Checkboxen/teksten for å toggle TodoElementet. 
+ */
+class TodoElement extends React.Component {
   constructor(props) {
     super(props);
   }

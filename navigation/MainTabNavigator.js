@@ -11,7 +11,7 @@ import TodoFormModal from '../screens/TodoFormModal';
 import MapPickerScreen from '../screens/MapPickerScreen';
 import Colors from '../constants/Colors';
 
-
+// Første stacken er første fanen. TodoScreen er det du ser med en gang, TodoFormModal er det du ser om du trykker på + for å legge til ny todo. MapPickerScreen er det du ser når du trykker add Location.
 const TodoStack = createStackNavigator(
   {    
     TodoScreen: TodoScreen,

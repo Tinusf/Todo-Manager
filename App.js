@@ -22,6 +22,7 @@ export default class App extends React.Component {
       );
     } else {
       return (
+        // Provider er for å wrappe alle komponentene med redux så alle kan få tilgang til storen. Og PersistGate er for å synkronisere redux med AsyncStorage.
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <View style={styles.container}>
@@ -30,7 +31,6 @@ export default class App extends React.Component {
             </View>
           </PersistGate>
         </Provider>
-
       );
     }
   }

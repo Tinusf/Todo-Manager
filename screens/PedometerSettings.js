@@ -22,7 +22,6 @@ class PedometerSettings extends React.Component {
       goal: this.props.goal
     };
   }
-
   
   componentDidMount() {
     this.props.navigation.setParams({ save: this.save });

@@ -2,10 +2,12 @@ import { combineReducers } from "redux";
 import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from "../actions/Todo-actions";
 import { SET_GOAL, TOGGLE_HELP } from "../actions/Settings-actions";
 
+// Parameteret state er hvordan det var før og så returnerer du neste verdi av state etter en action.  
 todos = (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
       return [
+        // hele forrige state + et nytt objekt.
         ...state,
         {
           category: action.category,
@@ -14,6 +16,7 @@ todos = (state = [], action) => {
           completed: false,
           coords: action.coords,
           id: state.length === 0 ? 0 : state[state.length - 1].id + 1
+          // Den med høyest ID er alltid sist i listen så vi tar den og legger på 1.
         }
       ];
     case TOGGLE_TODO:
@@ -25,6 +28,7 @@ todos = (state = [], action) => {
   }
 };
 
+// I denne reducern så har state default verdier for goal og helpAlert.
 settings = (state = {goal: "5000", helpAlert: true}, action) => {
   switch (action.type) {
     case SET_GOAL:

@@ -58,7 +58,6 @@ export default class TodoScreen extends React.Component {
           </ScrollView>
         </Swiper>
         {Platform.OS !== 'ios' && <TodoActionButton navigate={this.props.navigation.navigate} setCategoryChosen={this.setCategoryChosen}/>}
-          
       </View>
    );
    }
@@ -71,11 +70,5 @@ const styles = StyleSheet.create({
   },
   fullTodoList: {
     height: "100%",
-  },
-  swipe: {
-
-  },
-  absoluteAndFill: {
-    //...StyleSheet.absoluteFillObject,
-  },
+  }
 });

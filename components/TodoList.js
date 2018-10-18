@@ -8,7 +8,7 @@ import TodoElement from "./TodoElement";
 
 /**
  * Denne klassen lager en liste med TodoElements. For så å legge de i et
- * ScrollView.
+ * View.
  */
 
 class TodoList extends React.Component {
