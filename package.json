@@ -27,7 +27,8 @@
     "react-navigation": "^2.17.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.1",
-    "redux-persist": "^5.10.0"
+    "redux-persist": "^5.10.0",
+    "storage-memory": "0.0.2"
   },
   "devDependencies": {
     "jest-expo": "^30.0.0"

@@ -24,8 +24,13 @@ class TodoForm extends React.Component {
   }
 
   showMapPicker = () => {
+<<<<<<< Updated upstream
     this.props.navigation.navigate("MapPickerScreen", { addLocation: this.addLocation });
   }
+=======
+    this.props.navigation.navigate("MapPickerScreen", { addLocation: this.addLocation });
+  };
+>>>>>>> Stashed changes
 
   addLocation = (coords) => {
     this.setState({coords: coords});
