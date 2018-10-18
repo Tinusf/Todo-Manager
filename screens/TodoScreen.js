@@ -1,50 +1,45 @@
 import React from 'react';
 import {
   StyleSheet,
+  ScrollView,
   View,
-  Text
 } from 'react-native';
 import TodoCalendar from "../components/TodoCalendar";
+import { Platform } from 'react-native';
+import { Icon } from 'expo';
+import Colors from '../constants/Colors';
 import TodoList from "../components/TodoList";
 import Swiper from 'react-native-swiper';
 import TodoActionButton from "../components/TodoActionButton";
 
 
 export default class TodoScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Todo View',
+  static navigationOptions = ({ navigation }) => {
+    // Bare ios skal ha + knappen oppe til høyre, fordi dette er standard for ios apper, mens android bruker den klassiske store blå knappen nede til høyre istedenfor.
+    if(Platform.OS === 'ios'){
+      return {
+        headerTitle: "Todos",
+        headerRight: <Icon.Ionicons
+        name="ios-add"
+        size={40}
+        onPress={() => navigation.navigate("TodoFormModal")} 
+        style={{paddingLeft: 10, paddingRight: 10 }}
+        color={Colors.tintColor}
+      />
+      };
+    }
+    return {
+      headerTitle: "Todos",
+    };
   };
 
   constructor(props) {
     super(props);
     this.state = {
       isModalVisible: false,
-      showCalendar: true,
-      nextId: 4,
-      // Uncomment for example todos!
-      //todos: [
-        // { id: 0, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 1, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }, { id: 2, text: "kjøp melk", date: "2018-10-05", category: "work", completed: false }, { id: 3, text: "gjør webdev og balbajsklfjkalsdfjkla sdjklfja skldfj klasjdfkl jaklsdfjkla jsdklfj askldjfkl jasdklfj klasjdfk jaskldfjklasj klfjaskld fjklasdfjkl ", date: "2018-10-04", category: "fun", completed: true }
-      // ]
+      showCalendar: true
     };
   }
-
-  deleteTodo = (id) => {
-    const todos = this.state.todos;
-    delete todos[id];
-    this.setState({
-      todos: todos,
-    });
-  }
-
-  toggleTodoStatus = (id) => {
-    // Toggler statusen til todo'en.
-    const todos = this.state.todos;
-    todos[id]["completed"] = !todos[id]["completed"];
-    this.setState({
-      todos: todos,
-    });
-  }
-
 
   setCategoryChosen = (category) => {
     this.setState({category: category});
@@ -53,12 +48,16 @@ export default class TodoScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Swiper style={styles.absoluteAndFill} loop={false}>
-          <TodoCalendar toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo}/>
-          <TodoList toggleTodoStatus={this.toggleTodoStatus} deleteTodo={this.deleteTodo}/>
+        <Swiper activeDotColor={Colors.tintColor} loop={false}>
+          <TodoCalendar/>
+          <ScrollView style={this.fullTodoList}>
+            <TodoList chosenCategory="work" />
+            <TodoList chosenCategory="school" />
+            <TodoList chosenCategory="fun" />
+            <TodoList chosenCategory="other" />
+          </ScrollView>
         </Swiper>
-        <TodoActionButton navigate={this.props.navigation.navigate} setCategoryChosen={this.setCategoryChosen}/>
-          
+        {Platform.OS !== 'ios' && <TodoActionButton navigate={this.props.navigation.navigate} setCategoryChosen={this.setCategoryChosen}/>}
       </View>
    );
    }
@@ -67,12 +66,9 @@ export default class TodoScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: Colors.backgroundColor
   },
-  swipe: {
-
-  },
-  absoluteAndFill: {
-    //...StyleSheet.absoluteFillObject,
-  },
+  fullTodoList: {
+    height: "100%",
+  }
 });

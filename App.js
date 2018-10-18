@@ -11,7 +11,6 @@ export default class App extends React.Component {
     isLoadingComplete: false,
   };
   
-
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
@@ -23,6 +22,7 @@ export default class App extends React.Component {
       );
     } else {
       return (
+        // Provider er for å wrappe alle komponentene med redux så alle kan få tilgang til storen. Og PersistGate er for å synkronisere redux med AsyncStorage.
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <View style={styles.container}>
@@ -31,17 +31,12 @@ export default class App extends React.Component {
             </View>
           </PersistGate>
         </Provider>
-
       );
     }
   }
 
   _loadResourcesAsync = async () => {
     return Promise.all([
-      Asset.loadAsync([
-        require('./assets/images/robot-dev.png'),
-        require('./assets/images/robot-prod.png'),
-      ]),
       Font.loadAsync({
         // This is the font that we are using for our tab bar
         ...Icon.Ionicons.font,

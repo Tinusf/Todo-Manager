@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MapsScreen Matches snapshot. 1`] = `
+exports[`MapPickerScreen Matches snapshot. 1`] = `
 <Component
   style={
     Object {
@@ -9,6 +9,7 @@ exports[`MapsScreen Matches snapshot. 1`] = `
   }
 >
   <MapView
+    onPress={[Function]}
     onRegionChangeComplete={[Function]}
     region={
       Object {

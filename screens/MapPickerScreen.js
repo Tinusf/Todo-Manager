@@ -4,8 +4,8 @@ import { MapView, Permissions, Location } from 'expo';
 
 export default class MapPickerScreen extends React.Component {
   state = {
-    // Før du har fetched første resultat fra gpsen så skal du bare være zoomer ut og se hele verdenskartet.
-    mapRegion: { latitude: 0, longitude: 0, latitudeDelta: 100, longitudeDelta: 100 },
+    // Før du har fetched første resultat fra gpsen så skal du bare være zoomer ut og se norgeskartet.
+    mapRegion: { latitude: 64, longitude: 13, latitudeDelta: 14, longitudeDelta: 25 },
     currentLocationResult: null,
     chosenLoc: null,
   };
@@ -34,7 +34,7 @@ export default class MapPickerScreen extends React.Component {
       });
     }
     // Det er en bug på android telefoner som gjør at denne ikke funker på mobiler som har "device only" på gps mode valgt i settings.
-    let location = await Location.getCurrentPositionAsync({ enableHighAccuracy: true, maximumAge: 10000 });
+    let location = await Location.getCurrentPositionAsync({ enableHighAccuracy: false, maximumAge: 10000 });
 
     const lat = location["coords"]["latitude"];
     const long = location["coords"]["longitude"];

@@ -1,5 +1,4 @@
 import React from "react";
-
 import { StyleSheet, Button } from 'react-native';
 import Colors from "../constants/Colors";
 

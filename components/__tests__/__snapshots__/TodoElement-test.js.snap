@@ -1,10 +1,131 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TodoElement Matches snapshot. 1`] = `
-<Connect(TodoElement)
-  category="work"
-  completed={false}
-  date="2018-10-07"
-  text="buy eggs"
-/>
+<Component
+  style={
+    Object {
+      "backgroundColor": "white",
+      "borderColor": "gray",
+      "borderTopWidth": 0.25,
+      "flex": 1,
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "padding": 3,
+      "paddingLeft": 20,
+      "width": "100%",
+    }
+  }
+>
+  <TouchableOpacity
+    activeOpacity={0.2}
+    onPress={[Function]}
+    style={
+      Object {
+        "padding": 8,
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "width": "100%",
+        }
+      }
+    >
+      <Component
+        style={
+          Object {
+            "width": 34,
+          }
+        }
+      >
+        <Icon
+          allowFontScaling={false}
+          color="#51acf2"
+          name="ios-briefcase"
+          size={30}
+          style={
+            Object {
+              "paddingTop": 5,
+            }
+          }
+        />
+      </Component>
+      <CheckBox
+        checked={false}
+        color="#51acf2"
+        styles={
+          Object {
+            "margin": 10,
+            "padding": 5,
+            "paddingTop": 10,
+          }
+        }
+      />
+      <Component
+        style={
+          Object {
+            "flexDirection": "column",
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 16,
+              "paddingTop": 4,
+            }
+          }
+        >
+          buy eggs
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "gray",
+              "fontSize": 12,
+              "paddingTop": 2,
+            }
+          }
+        >
+          2018-10-07
+        </Text>
+      </Component>
+    </Component>
+  </TouchableOpacity>
+  <TouchableOpacity
+    activeOpacity={0.2}
+    onPress={[Function]}
+    style={
+      Object {
+        "padding": 8,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "red",
+          "fontSize": 20,
+          "paddingRight": 10,
+          "paddingTop": 7,
+        }
+      }
+    >
+      X
+    </Text>
+  </TouchableOpacity>
+</Component>
 `;

@@ -5,11 +5,13 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import TabBarIcon from '../components/TabBarIcon';
 import MapsScreen from '../screens/MapsScreen';
 import PedometerScreen from '../screens/PedometerScreen';
+import PedometerSettings from '../screens/PedometerSettings';
 import TodoScreen from '../screens/TodoScreen';
 import TodoFormModal from '../screens/TodoFormModal';
 import MapPickerScreen from '../screens/MapPickerScreen';
+import Colors from '../constants/Colors';
 
-
+// Første stacken er første fanen. TodoScreen er det du ser med en gang, TodoFormModal er det du ser om du trykker på + for å legge til ny todo. MapPickerScreen er det du ser når du trykker add Location.
 const TodoStack = createStackNavigator(
   {    
     TodoScreen: TodoScreen,
@@ -20,6 +22,10 @@ const TodoStack = createStackNavigator(
 
 TodoStack.navigationOptions = {
   tabBarLabel: 'Todo',
+  tabBarTintColor: 'white',
+  tabBarOptions: {
+    activeTintColor: Colors.tabIconSelected,
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -38,6 +44,9 @@ const MapsStack = createStackNavigator({
 
 MapsStack.navigationOptions = {
   tabBarLabel: 'Maps',
+  tabBarOptions: {
+    activeTintColor: Colors.tabIconSelected,
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -48,10 +57,15 @@ MapsStack.navigationOptions = {
 
 const PedometerStack = createStackNavigator({
   Pedometer: PedometerScreen,
+  PedometerSettings: PedometerSettings,
+
 });
 
 PedometerStack.navigationOptions = {
   tabBarLabel: 'Pedometer',
+  tabBarOptions: {
+    activeTintColor: Colors.tabIconSelected,
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}

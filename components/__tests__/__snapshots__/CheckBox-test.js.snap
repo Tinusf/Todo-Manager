@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckBox Matches snapshot. 1`] = `
+<Component
+  style={
+    Object {
+      "margin": 10,
+      "marginTop": 10,
+    }
+  }
+>
+  <Component
+    style={
+      Object {
+        "backgroundColor": "white",
+        "borderColor": "gray",
+        "borderRadius": 24,
+        "borderWidth": 1,
+        "height": 24,
+        "width": 24,
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "borderRadius": 24,
+          "height": "0%",
+          "position": "relative",
+          "right": 0.3,
+          "top": -3,
+          "width": "0%",
+        }
+      }
+    >
+      <Icon
+        allowFontScaling={false}
+        name="ios-checkmark-circle"
+        size={28}
+        style={Object {}}
+      />
+    </Component>
+  </Component>
+</Component>
+`;

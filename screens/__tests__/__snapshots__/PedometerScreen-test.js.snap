@@ -4,8 +4,10 @@ exports[`PedometerScreen Matches snapshot. 1`] = `
 <Component
   style={
     Object {
-      "backgroundColor": "#9DD6EB",
+      "backgroundColor": "white",
       "flex": 1,
+      "padding": 30,
+      "paddingTop": 50,
     }
   }
 >
@@ -15,17 +17,28 @@ exports[`PedometerScreen Matches snapshot. 1`] = `
     ellipsizeMode="tail"
     style={
       Object {
-        "color": "#fff",
-        "fontSize": 30,
-        "fontWeight": "bold",
-        "padding": 30,
+        "fontSize": 70,
+        "textAlign": "center",
       }
     }
   >
-    Steps last 24 hours: 
-    
-
-    0
+    🏃‍
+  </Text>
+  <ProgressBar
+    percentage={0}
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 14,
+        "textAlign": "center",
+      }
+    }
+  >
+    0% completed of today' s goal
   </Text>
   <Text
     accessible={true}
@@ -33,14 +46,14 @@ exports[`PedometerScreen Matches snapshot. 1`] = `
     ellipsizeMode="tail"
     style={
       Object {
-        "color": "#fff",
+        "color": "black",
         "fontSize": 30,
-        "fontWeight": "bold",
         "padding": 30,
+        "textAlign": "center",
       }
     }
   >
-    Current step count: 
+    Steps today: 
     
 
     0

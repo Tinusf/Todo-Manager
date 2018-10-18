@@ -2,15 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
 import { MapView, Permissions, Location } from 'expo';
+import Categories from '../constants/Categories';
 
 class MapsScreen extends React.Component {
   static navigationOptions = {
-    title: 'Map View',
+    title: 'Map of todos',
   };
 
   state = {
-    // Før du har fetched første resultat fra gpsen så skal du bare være zoomer ut og se hele verdenskartet.
-    mapRegion: { latitude: 0, longitude: 0, latitudeDelta: 100, longitudeDelta: 100 },
+    // Før du har fetched første resultat fra gpsen så skal du bare være zoomer ut og se norgeskartet.
+    mapRegion: { latitude: 64, longitude: 13, latitudeDelta: 14, longitudeDelta: 25 },
     currentLocationResult: null,
   };
 
@@ -25,6 +26,7 @@ class MapsScreen extends React.Component {
 
   _getLocationAsyncAndSetRegion = async () => {
     // Kjøres for å zoome inn på riktig sted i verden. Første gps lokasjonen som du får.
+    // Må først spør om permissions for locations.
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
       this.setState({
@@ -32,25 +34,17 @@ class MapsScreen extends React.Component {
       });
     }
     // Det er en bug på android telefoner som gjør at denne ikke funker på mobiler som har "device only" på gps mode valgt i settings.
-    let location = await Location.getCurrentPositionAsync({ enableHighAccuracy: true, maximumAge: 10000 });
+    let location = await Location.getCurrentPositionAsync({ enableHighAccuracy: false, maximumAge: 10000 });
 
     const lat = location["coords"]["latitude"];
     const long = location["coords"]["longitude"];
     const latDelta = 0.0922;
     const longDelta = 0.0421;
     this.setState({ mapRegion: { latitude: lat, longitude: long, latitudeDelta: latDelta, longitudeDelta: longDelta } })
-
-    // this.setState({ currentLocationResult: { coords: { "latitude": location["coords"]["latitude"], "longitude": location["coords"]["longitude"] } } });
-
   };
 
   render() {
-    const categoryToColor = {
-      'work': 'red',
-      'school': 'blue',
-      'fun': 'orange',
-      'other': 'green'
-    };
+  
 
     return (
       <View style={styles.container}>
@@ -70,7 +64,7 @@ class MapsScreen extends React.Component {
               coordinate={todo["coords"]}
               title={todo["category"]}
               description={todo["text"]}
-              pinColor={categoryToColor[todo["category"]]}
+              pinColor={Categories[todo["category"]].color}
             />
           )} 
 
