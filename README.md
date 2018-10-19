@@ -3,24 +3,24 @@ Dette er en app utviklet med React Native som lar deg holde oversikt over ulike 
 
 
 ## Innholdsfortegnelse
-- [Appens Virkemåte](#Appens-virkemåte)
-    - [TODO](#TODO)
-    - [Maps](#Maps)
-    - [Pedometer](#Pedometer)
-- [Teknologi](#Teknologi)
-    - [React Native](#React-Native)
-    - [Redux](#Redux)
-    - [AsyncStorage](#AsyncStorage)
-    - [Tredjeparts biblioteker](#Tredjeparts-biblioteker)
-- [Testing med Jest](#Testing-med-Jest)
-    - [Snapshot tester](#Snapshot-tester)
-    - [AsyncStorage testing](#AsyncStorage-testing)
-- [Git](#Git)
-- [Plattformuavhengig](#Plattformuavhengig)
-- [Screenshots](#Screenshots)
-    - [Screenshots fra Android](#Screenshots-fra-Android)
-    - [Screenschots fra iOS](#Screenschots-fra-iOS)
-    - [Kart og Skritteller fra Android](#Kart-og-Skritteller-fra-Android)
+- [Appens Virkemåte](#appens-virkemåte)
+    - [Todo](#todo)
+    - [Maps](#maps)
+    - [Pedometer](#pedometer)
+- [Teknologi](#teknologi)
+    - [React Native](#react-native)
+    - [Redux](#redux)
+    - [AsyncStorage](#asyncstorage)
+    - [Tredjeparts biblioteker](#tredjeparts-biblioteker)
+- [Testing med Jest](#testing-med-jest)
+    - [Snapshot tester](#snapshot-tester)
+    - [AsyncStorage testing](#asyncstorage-testing)
+- [Git](#git)
+- [Plattformuavhengig](#plattformuavhengig)
+- [Screenshots](#screenshots)
+    - [Screenshots fra Android](#screenshots-fra-android)
+    - [Screenschots fra iOS](#screenschots-fra-ios)
+    - [Kart og Skritteller fra Android](#kart-og-skritteller-fra-android)
 
 
 Om du vil kan du laste ned apk filen for [android](http://folk.ntnu.no/tinussf/it2810/p3/android.apk).  
@@ -39,7 +39,7 @@ Appen er laget av Tinus Flagstad, Martin Bondkall Gjerde & Jon Ryfetten.
 
 Appen er delt inn i tre faner (Todo, Maps og Pedometer) som man bytter mellom nederst i appen.
 
-#### TODO
+#### Todo
 Dette er den siden man ser når man åpner appen. Her har man en kalender og en liste med alle gjøremålene man har lagt til under kalenderen. Listen inneholder bare gjøremål for den valgte datoen. Hvis man sveiper mot venstre på gjøremålslista kommer opp en fullstendig oversikt over alle gjøremålene man har lagt inn. Gjøremålene blir sortert etter kategori. Man oppretter nye gjøremål ved å trykke på pluss knappen og fylle ut skjemaet.
 
 #### Maps
@@ -57,7 +57,7 @@ React Native er et rammeverk for å bygge native apper med React. En fordel med 
 
 Appen er delt inn flere screens og components. Et screen er navigeringsvindu og representerer det som vises på skjermen. Den er også bygget opp av flere komponenter. Vi har 6 screens hvor alle er koblet opp til React Navigation. Dette gjør at vi kan lage faner og bla gjennom screens fint og effektivt.
 
-I dette prosjektet valgte vi å bruke mange tredjepartskomponenter som for eksempel kalenderen og kartet. En fullstendig liste av alle tredjepartsbibliotekene vi har brukt kan man se [her](#Tredjeparts-biblioteker). Vi valgte å bruke disse tredjepartsbibliotekene fordi de var nyttige, lette å bruke, og vi slapp å skrive komponenter som allerede er skrevet fra før av. Kalenderen for eksempel egnet seg veldig godt med tanke på vår visjon av appen. Under letingen etter gode tredjepartskomponenter lærte vi a det var stor forskjell på kvalitet av komponentene. Derfor prøvde vi å finne komponenter som nylig er oppdatert og fungerer på både iOS og Android.
+I dette prosjektet valgte vi å bruke mange tredjepartskomponenter som for eksempel kalenderen og kartet. En fullstendig liste av alle tredjepartsbibliotekene vi har brukt kan man se [her](#tredjeparts-biblioteker). Vi valgte å bruke disse tredjepartsbibliotekene fordi de var nyttige, lette å bruke, og vi slapp å skrive komponenter som allerede er skrevet fra før av. Kalenderen for eksempel egnet seg veldig godt med tanke på vår visjon av appen. Under letingen etter gode tredjepartskomponenter lærte vi a det var stor forskjell på kvalitet av komponentene. Derfor prøvde vi å finne komponenter som nylig er oppdatert og fungerer på både iOS og Android.
 
 Vi har også laget mange komponenter selv. Alle gjøremålene er representert som en TodoElement. Alle TodoElement'ene lagres med  id, text, date, category, og completed. Alle gjøremålene vises i foreldrekomponentet TodoList som er en liste over gjøremål. Denne listen vises i TodoCalender hvor gjøremålene blir filtrert på hvilken dag som er valgt, og fire ganger i TodoScreen hvor gjøremålene blir filtrert på kategori fire ganger.
 
@@ -93,7 +93,7 @@ import { CalendarList } from "react-native-calendars";
   horizontal={true}
   pagingEnabled={true}/>
 ```
-* [react-native-datepicker](https://github.com/xgfe/react-native-datepicker) - Kalenderen for å gi en ny TODO en dato.
+* [react-native-datepicker](https://github.com/xgfe/react-native-datepicker) - Kalenderen for å gi en ny todo med en dato.
 ```javascript
 import DatePicker from "react-native-datepicker";
 ...
@@ -139,7 +139,7 @@ render() {
   );
 }
 ```
-* [react-native-swiper](https://github.com/leecade/react-native-swiper) - Gir muligheten å Swipe mellom kalender skjermen og TODO-liste skjermen
+* [react-native-swiper](https://github.com/leecade/react-native-swiper) - Gir muligheten å Swipe mellom kalender skjermen og todo-liste skjermen
 ```javascript
 import Swiper from 'react-native-swiper';
 ...
@@ -148,7 +148,7 @@ import Swiper from 'react-native-swiper';
     <View style={styles.slide2}
 </Swiper>
 ```
-* [react-native-picker-select](https://www.npmjs.com/package/react-native-picker-select) - Valg av TODO-kategori på iOS og endring av kategori på Android.
+* [react-native-picker-select](https://www.npmjs.com/package/react-native-picker-select) - Valg av todo-kategori på iOS og endring av kategori på Android.
 ```javascript
 import RNPickerSelect from 'react-native-picker-select';
 ...
@@ -206,7 +206,7 @@ import { Cell, Section, TableView } from "react-native-tableview-simple";
 ```
 * [react-redux](https://github.com/reduxjs/react-redux)
 * [redux](https://www.npmjs.com/package/redux)
-Se introduksjon om [Redux](#Redux) lenger oppe.
+Se introduksjon om [Redux](#redux) lenger oppe.
 
 Eksempel på action
 ```javascript
@@ -378,7 +378,7 @@ render() {
     )
 }
 ```
-* [simple-lru-cache](https://github.com/fatelei/simple-lru-cache) - Brukes for å teste AsyncStorage. Les mer under [AsyncStorage](#AsyncStorage) under Testing med Jest
+* [simple-lru-cache](https://github.com/fatelei/simple-lru-cache) - Brukes for å teste AsyncStorage. Les mer under [AsyncStorage](#asyncstorage) under Testing med Jest
 
 ## Testing med Jest
 #### Snapshot tester
