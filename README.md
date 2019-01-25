@@ -1,4 +1,7 @@
 # Prosjekt 3: Personal Information and Motivation Manager
+
+[Download from Google play](https://play.google.com/store/apps/details?id=com.PearlsOfTMJ.todo)
+
 Dette er en app utviklet med React Native som lar deg holde oversikt over ulike gjøremål med mulighet for dato og sted. Appen vil også fungere som en motivasjon til å være mer aktiv gjennom skrittelleren hvor man kan legge til et daglig mål og se progresjonen sin.
 
 
